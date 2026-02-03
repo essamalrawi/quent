@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/utils/app_styles.dart';
 
+import '../reset_your_password_view.dart';
 import 'custom_check_box.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -36,7 +37,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            //  Navigator.pushNamed(context, ResetYourPasswordView.routeName);
+            Navigator.pushNamed(context, ResetYourPasswordView.routeName);
           },
           child: Text(
             'Forgot Password',
