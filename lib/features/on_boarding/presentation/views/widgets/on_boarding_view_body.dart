@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../const/resource.dart';
 import '../../../../../core/presentation/widgets/custom_button.dart';
+import '../../../../auth/presentation/views/sign_in_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -84,10 +85,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   text: "Get Started",
                   onPressed: () {
                     // Prefs.setBool(kIsOnBoardingViewSeen, true);
-                    // Navigator.pushReplacementNamed(
-                    //   context,
-                    //   SignInView.routeName,
-                    // );
+                    Navigator.pushReplacementNamed(
+                      context,
+                      SignInView.routeName,
+                    );
                   },
                 ),
               ),
