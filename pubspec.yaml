@@ -117,11 +117,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-flutter_assets:
-  assets_path: assets/images/
-  output_path: lib/constants/
-  filename: assets.dart
-  field_prefix:
+flutter_gen:
+  output: lib/generated/
+
 
 flutter_launcher_icons:
   android: true

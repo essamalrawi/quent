@@ -1,50 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../features/auth/presentation/manager/cubits/reset_password/reset_password_cubit.dart';
-import '../../features/auth/presentation/manager/cubits/verify_phone_number/verify_phone_number_cubit.dart';
-import '../../features/auth/presentation/views/new_passwrod_view.dart';
-import '../../features/auth/presentation/views/reset_your_password_view.dart';
-import '../../features/auth/presentation/views/sign_in_view.dart';
-import '../../features/auth/presentation/views/sign_up_view.dart';
-import '../../features/auth/presentation/views/verification_code_view.dart';
-import '../../features/auth/presentation/views/verify_reset_password_code_view.dart';
-import '../../features/auth/presentation/views/verify_your_phone_number_view.dart';
-import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
+import '../../features/auth/login/presentation/pages/sign_in_page.dart';
+import '../../features/auth/passwords/presentation/manager/cubits/reset_password/reset_password_cubit.dart';
+import '../../features/auth/passwords/presentation/pages/new_passwrod_page.dart';
+import '../../features/auth/passwords/presentation/pages/request_reset_password_page.dart';
+import '../../features/auth/register/presentation/pages/verification_code_page.dart';
+import '../../features/auth/register/presentation/pages/sign_up_page.dart';
+import '../../features/auth/passwords/presentation/pages/verify_reset_password_code_page.dart';
+import '../../features/auth/register/presentation/pages/verify_your_phone_number_page.dart';
+import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case OnBoardingView.routeName:
-      return CupertinoPageRoute(builder: (context) => OnBoardingView());
-    case SignUpView.routeName:
-      return CupertinoPageRoute(builder: (context) => SignUpView());
+    case OnBoardingPage.routeName:
+      return CupertinoPageRoute(builder: (context) => OnBoardingPage());
+    case SignUpPage.routeName:
+      return CupertinoPageRoute(builder: (context) => SignUpPage());
     case SignInView.routeName:
       return CupertinoPageRoute(builder: (context) => SignInView());
-    case ResetYourPasswordView.routeName:
-      return MaterialPageRoute(builder: (_) => const ResetYourPasswordView());
-    case NewPasswordView.routeName:
+    case ResetYourPasswordPage.routeName:
+      return MaterialPageRoute(builder: (_) => const ResetYourPasswordPage());
+    case NewPasswordPage.routeName:
       final cubit = settings.arguments as ResetPasswordCubit;
       return MaterialPageRoute(
         builder: (_) =>
-            BlocProvider.value(value: cubit, child: const NewPasswordView()),
+            BlocProvider.value(value: cubit, child: const NewPasswordPage()),
       );
 
-    case VerificationCodeView.routeName:
-      return MaterialPageRoute(builder: (_) => const VerificationCodeView());
-      
-    case VerifyYourPhoneNumberView.routeName:
+    case VerificationCodePage.routeName:
+      return MaterialPageRoute(builder: (_) => const VerificationCodePage());
+
+    case VerifyYourPhoneNumberPage.routeName:
       return MaterialPageRoute(
-        builder: (_) => const VerifyYourPhoneNumberView(),
+        builder: (_) => const VerifyYourPhoneNumberPage(),
       );
 
-    case VerifyResetPasswordCodeView.routeName:
-      final cubit = settings.arguments as ResetPasswordCubit;
+    case VerifyResetPasswordCodePage.routeName:
       return MaterialPageRoute(
-        builder: (context) => BlocProvider.value(
-          value: cubit,
-          child: const VerifyResetPasswordCodeView(),
-        ),
+        builder: (_) => const VerifyResetPasswordCodePage(),
       );
 
     default:

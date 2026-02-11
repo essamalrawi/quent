@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../cubit/otp_cubit/otp_cubit.dart';
+
+class CustomOtpTextFormField extends StatelessWidget {
+  const CustomOtpTextFormField({
+    super.key,
+    this.onSaved,
+    this.onChanged2,
+    required this.controller,
+  });
+
+  final void Function(String?)? onSaved;
+  final void Function(String)? onChanged2;
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<OtpCubit, OtpState>(
+      listener: (context, state) {
+        if (state is OtpClear) {
+          controller.clear();
+          context.read<OtpCubit>().clear();
+        }
+      },
+      child: SizedBox(
+        height: 68,
+        width: 64,
+        child: TextFormField(
+          controller: controller,
+          onSaved: onSaved,
+          onChanged: (value) {
+            if (value.length == 1) FocusScope.of(context).nextFocus();
+            onChanged2?.call(value);
+          },
+          decoration: InputDecoration(
+            border: buildOutlineInputBorder(),
+            enabledBorder: buildOutlineInputBorder(),
+            focusedBorder: buildOutlineInputBorder(),
+          ),
+          style: Theme.of(context).textTheme.headlineMedium,
+          keyboardType: TextInputType.number,
+          textAlign: TextAlign.center,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(1),
+            FilteringTextInputFormatter.digitsOnly,
+          ],
+        ),
+      ),
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderSide: const BorderSide(width: 1, color: Color(0xFFD7D7D7)),
+      borderRadius: BorderRadius.circular(10),
+    );
+  }
+}
