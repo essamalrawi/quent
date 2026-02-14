@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quent/features/auth/register/data/repos/register_repo_impl.dart';
 import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_register_locations_use_case.dart';
 import 'package:quent/features/auth/register/presentation/pages/widgets/sign_up_page_body.dart';
 import '../../../../../core/services/get_it_service.dart';
