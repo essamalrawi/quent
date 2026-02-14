@@ -4,6 +4,7 @@ import 'package:quent/core/utils/api_service.dart';
 import 'package:quent/features/auth/register/data/data_sources/register_remote_data_source.dart';
 import 'package:quent/features/auth/register/data/repos/register_repo_impl.dart';
 import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_register_countries_use_case.dart';
+import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_register_locations_use_case.dart';
 
 final getIt = GetIt.instance;
 
@@ -19,5 +20,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<FetchFeaturedRegisterCountriesUseCase>(
     FetchFeaturedRegisterCountriesUseCase(getIt.get<RegisterRepoImpl>()),
+  );
+  getIt.registerSingleton<FetchFeaturedRegisterLocationsUseCase>(
+    FetchFeaturedRegisterLocationsUseCase(getIt.get<RegisterRepoImpl>()),
   );
 }
