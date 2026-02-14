@@ -2,12 +2,23 @@ import 'package:quent/core/entities/country_entity.dart';
 import 'package:quent/core/entities/location_entity.dart';
 import 'package:quent/core/models/country_model.dart';
 import 'package:quent/core/models/location_model.dart';
+import '../../../../../core/entities/user_entity.dart';
 import '../../../../../core/utils/api_service.dart';
 
 abstract class RegisterRemoteDataSource {
   Future<List<CountryEntity>> getCountries();
 
   Future<List<LocationEntity>> getLocations();
+
+  Future<UserEntity> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+    required int countryId,
+    required String phone,
+    required bool createCar,
+    required int locationId,
+  });
 }
 
 class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
@@ -45,5 +56,19 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
       locations.add(LocationModel.fromJson(locationMap));
     }
     return locations;
+  }
+
+  @override
+  Future<UserEntity> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+    required int countryId,
+    required String phone,
+    required bool createCar,
+    required int locationId,
+  }) {
+    // TODO: implement signUp
+    throw UnimplementedError();
   }
 }
