@@ -11,7 +11,6 @@ void main() async {
   Bloc.observer = CustomBlocObserver();
   await Prefs.init();
   setupGetIt();
-
   runApp(const QuentApp());
 }
 

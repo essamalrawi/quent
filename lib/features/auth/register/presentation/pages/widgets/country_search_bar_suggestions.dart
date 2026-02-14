@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../generated/assets.gen.dart';
@@ -112,6 +114,7 @@ class _CountrySearchBarSuggestionsState
         if (state is GetCountriesSuccess) {
           _data = state.countries;
           print(_data.length);
+          log("This is a test or is it?");
         }
       },
       child: Column(
