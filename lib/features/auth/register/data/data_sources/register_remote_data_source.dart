@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:quent/core/entities/country_entity.dart';
+import 'package:quent/core/entities/full_user_entity.dart';
 import 'package:quent/core/entities/location_entity.dart';
 import 'package:quent/core/models/country_model.dart';
+import 'package:quent/core/models/full_user_model.dart';
 import 'package:quent/core/models/location_model.dart';
-import '../../../../../core/entities/user_entity.dart';
 import '../../../../../core/utils/api_service.dart';
 
 abstract class RegisterRemoteDataSource {
@@ -10,7 +12,7 @@ abstract class RegisterRemoteDataSource {
 
   Future<List<LocationEntity>> getLocations();
 
-  Future<UserEntity> signUp({
+  Future<FullUserEntity> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -42,6 +44,34 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
     return locations;
   }
 
+  @override
+  Future<FullUserEntity> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+    required int countryId,
+    required String phone,
+    required bool createCar,
+    required int locationId,
+  }) async {
+    final formData = FormData.fromMap({
+      "phone": phone,
+      "email": email,
+      "password": password,
+      "country_id": countryId,
+      "full_name": fullName,
+      "location_id": locationId,
+      "available_to_create_car": createCar,
+    });
+
+    var data = await apiService.post(
+      endPoint: 'auth/register/',
+      data: formData,
+    );
+    // print("DATA: " + data['tokens']['access']);
+    return FullUserModel.fromJson(data);
+  }
+
   List<CountryEntity> getCountryList(Map<String, dynamic> data) {
     List<CountryEntity> countries = [];
     for (var countryMap in data['data']) {
@@ -56,19 +86,5 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
       locations.add(LocationModel.fromJson(locationMap));
     }
     return locations;
-  }
-
-  @override
-  Future<UserEntity> signUp({
-    required String fullName,
-    required String email,
-    required String password,
-    required int countryId,
-    required String phone,
-    required bool createCar,
-    required int locationId,
-  }) {
-    // TODO: implement signUp
-    throw UnimplementedError();
   }
 }
