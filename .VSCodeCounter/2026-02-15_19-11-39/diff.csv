@@ -1,0 +1,6 @@
+"filename", "language", "Dart", "comment", "blank", "total"
+"c:\Dev\quent\lib\features\auth\register\data\data_sources\register_remote_data_source.dart", "Dart", -1, 1, -1, -1
+"c:\Dev\quent\lib\features\auth\register\presentation\manager\cubits\sign_up\sign_up_cubit.dart", "Dart", 7, 0, 3, 10
+"c:\Dev\quent\lib\features\auth\register\presentation\manager\cubits\sign_up\sign_up_state.dart", "Dart", 13, 0, 8, 21
+"c:\Dev\quent\lib\main.dart", "Dart", 6, 10, 5, 21
+"Total", "-", 25, 11, 15, 51

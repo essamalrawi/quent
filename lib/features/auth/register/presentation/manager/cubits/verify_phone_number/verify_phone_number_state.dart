@@ -13,9 +13,9 @@ final class VerifyPhoneNumberFailure extends VerifyPhoneNumberState {
   VerifyPhoneNumberFailure({required this.errorMessage});
 }
 
-final class VerifyPhoneNumberSuccess extends VerifyPhoneNumberState {}
-
-final class VerifyPhoneNumberRequestLoading extends VerifyPhoneNumberState {}
+final class VerifyPhoneNumberSuccess extends VerifyPhoneNumberState {
+  VerifyPhoneNumberSuccess();
+}
 
 final class VerifyPhoneNumberRequestFailure extends VerifyPhoneNumberState {
   final String errorMessage;
@@ -24,7 +24,7 @@ final class VerifyPhoneNumberRequestFailure extends VerifyPhoneNumberState {
 }
 
 final class VerifyPhoneNumberRequestSuccess extends VerifyPhoneNumberState {
-  final RequestVeifyPhoneEntity requestVeifyPhoneEntity;
+  final VerifyPhoneEntity verifyPhoneEntity;
 
-  VerifyPhoneNumberRequestSuccess({required this.requestVeifyPhoneEntity});
+  VerifyPhoneNumberRequestSuccess({required this.verifyPhoneEntity});
 }

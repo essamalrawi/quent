@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quent/features/auth/register/presentation/manager/cubits/show_national_id_and_date_of_birth/show_national_id_and_date_of_birth_cubit.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/buttons/social_login_button.dart';
 import '../../../../../../core/components/forms/password_field.dart';
 import '../../../../../../core/resources/app_styles.dart';
 import '../../../../../../generated/assets.gen.dart';
+import '../../manager/cubits/sign_up/sign_up_cubit.dart';
 import 'yes_no_choice.dart';
-import '../verify_your_phone_number_page.dart';
 import 'country_search_bar_suggestions.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
 import '../../../../login/presentation/pages/widgets/have_an_account.dart';
@@ -27,6 +29,9 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
   late String fullName, email, password, phone;
   late int countryId, locationId;
   bool createCar = false;
+  String? nationalId, dateOfBirth;
+  TextEditingController dobController = TextEditingController();
+  int selectedValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +112,12 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
                     noIcon: Icons.close,
                     initialValue: 0,
                     onChanged: (c) {
+                      if (c == selectedValue) return;
                       createCar = c == 1;
+                      selectedValue = c;
+                      context
+                          .read<ShowNationalIdAndDateOfBirthCubit>()
+                          .setChange();
                     },
                     enabled: true,
                     yesColor: const Color(0xFF21292B),
@@ -116,35 +126,77 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
                     unselectedTextColor: const Color(0xFF21292B),
                     disabledColor: Colors.grey,
                   ),
+                  BlocBuilder<
+                    ShowNationalIdAndDateOfBirthCubit,
+                    ShowNationalIdAndDateOfBirthState
+                  >(
+                    builder: (context, state) {
+                      return context
+                              .watch<ShowNationalIdAndDateOfBirthCubit>()
+                              .showIt
+                          ? Column(
+                              children: [
+                                const SizedBox(height: 18),
+                                CustomTextFormField(
+                                  hintText: "National Id",
+                                  onSaved: (value) {
+                                    nationalId = value!;
+                                  },
+                                  textInputType: TextInputType.text,
+                                  obscureText: false,
+                                ),
+                                const SizedBox(height: 18),
+                                CustomTextFormField(
+                                  textEditingController: dobController,
+                                  hintText: "Date Of Birth",
+
+                                  onTap: () async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime(2000),
+                                      firstDate: DateTime(1900),
+                                      lastDate: DateTime.now(),
+                                    );
+
+                                    if (pickedDate != null) {
+                                      dobController.text =
+                                          "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
+
+                                      dateOfBirth =
+                                          "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
+                                    }
+                                  },
+                                  textInputType: TextInputType.text,
+                                  obscureText: false,
+                                  readonly: true,
+                                ),
+                              ],
+                            )
+                          : SizedBox();
+                    },
+                  ),
+
                   const SizedBox(height: 28),
                   CustomButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        VerifyYourPhoneNumberPage.routeName,
-                      );
-                      // if (_formKey.currentState!.validate()) {
-                      //    _formKey.currentState!.save();
-                      // context.read<SignUpCubit>().signUp(
-                      //   fullName: fullName,
-                      //   email: email,
-                      //   password: password,
-                      //   countryId: countryId,
-                      //   phone: phone,
-                      //   createCar: createCar,
-                      //   locationId: locationId,
-                      // );
-                      //    }
-                      // else {
-                      //   setState(() {
-                      //     autoValidateMode = AutovalidateMode.always;
-                      //   });
-                      // }
-
-                      // Navigator.pushNamed(
-                      //   context,
-                      //   VerifyYourPhoneNumberView.routeName,
-                      // );
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<SignUpCubit>().signUp(
+                          fullName: fullName,
+                          email: email,
+                          password: password,
+                          countryId: countryId,
+                          phone: phone,
+                          createCar: createCar,
+                          locationId: locationId,
+                          nationalId: nationalId,
+                          dateOfBirth: dateOfBirth,
+                        );
+                      } else {
+                        setState(() {
+                          autoValidateMode = AutovalidateMode.always;
+                        });
+                      }
                     },
                     text: "Sign Up",
                   ),

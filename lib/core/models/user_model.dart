@@ -11,6 +11,8 @@ class UserModel extends UserEntity {
     super.phoneVerified,
     super.country,
     super.location,
+    super.nationalId,
+    super.dateOfBirth,
   );
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +24,8 @@ class UserModel extends UserEntity {
       json['phone_is_verified'],
       CountryModel.fromJson(json['country']),
       LocationModel.fromJson(json['location']),
+      json['national_id'].toString() as String?,
+      json['date_of_birth'] as String?,
     );
   }
 }

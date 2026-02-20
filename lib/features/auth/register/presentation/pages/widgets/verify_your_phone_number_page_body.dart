@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/features/main/home/presentation/pages/home_page.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
 import '../../../../../../generated/assets.gen.dart';
+import '../../manager/cubits/verify_phone_number/verify_phone_number_cubit.dart';
 import '../verification_code_page.dart';
 import 'country_search_bar_suggestions.dart';
 
@@ -40,10 +43,10 @@ class _VerifyYourPhoneNumberPageBodyState
 
                     GestureDetector(
                       onTap: () {
-                        // Navigator.pushReplacementNamed(
-                        //   context,
-                        //   MainView.routeName,
-                        // );
+                        Navigator.pushReplacementNamed(
+                          context,
+                          HomePage.routeName,
+                        );
                       },
 
                       child: Text(
@@ -94,25 +97,15 @@ class _VerifyYourPhoneNumberPageBodyState
                   ),
                   const SizedBox(height: 28),
                   CustomButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        VerificationCodePage.routeName,
-                      );
-                      // if (formKey.currentState!.validate()) {
-                      //   formKey.currentState!.save();
-                      //
-                      //   String accesToken = Prefs.getString(kAccessToken);
-                      //
-                      //   context
-                      //       .read<VerifyPhoneNumberCubit>()
-                      //       .requestVerifyPhoneNumber(
-                      //         phone: phone,
-                      //         accessToken: accesToken,
-                      //       );
-                      // } else {
-                      //   autoValidateMode = AutovalidateMode.always;
-                      // }
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        context
+                            .read<VerifyPhoneNumberCubit>()
+                            .requestVerifyCode(phone: phone);
+                      } else {
+                        autoValidateMode = AutovalidateMode.always;
+                      }
                     },
                     text: "Continue",
                   ),

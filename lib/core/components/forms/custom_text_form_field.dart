@@ -9,17 +9,26 @@ class CustomTextFormField extends StatelessWidget {
     required this.textInputType,
     required this.obscureText,
     this.onSaved,
+    this.readonly,
+    this.onTap,
+    this.textEditingController,
   });
 
+  final TextEditingController? textEditingController;
   final TextInputType textInputType;
   final String hintText;
   final Widget? suffixIcon;
   final bool obscureText;
+  final bool? readonly;
   final void Function(String?)? onSaved;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textEditingController,
+      onTap: onTap,
+      readOnly: readonly ?? false,
       onSaved: onSaved,
       obscureText: obscureText,
       keyboardType: textInputType,

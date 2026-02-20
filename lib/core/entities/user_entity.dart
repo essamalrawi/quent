@@ -9,6 +9,8 @@ class UserEntity {
   final bool phoneVerified;
   final CountryEntity country;
   final LocationEntity location;
+  final String? nationalId;
+  final String? dateOfBirth;
 
   UserEntity(
     this.id,
@@ -18,5 +20,7 @@ class UserEntity {
     this.phoneVerified,
     this.country,
     this.location,
+    this.nationalId,
+    this.dateOfBirth,
   );
 }

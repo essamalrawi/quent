@@ -1,0 +1,38 @@
+Date : 2026-02-15 19:11:39
+Directory : c:\Dev\quent\lib
+Total : 4 files,  25 codes, 11 comments, 15 blanks, all 51 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |          4 |         25 |         11 |         15 |         51 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                           | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                              |          4 |         25 |         11 |         15 |         51 |
+| . (Files)                                                                                      |          1 |          6 |         10 |          5 |         21 |
+| features                                                                                       |          3 |         19 |          1 |         10 |         30 |
+| features\auth                                                                                  |          3 |         19 |          1 |         10 |         30 |
+| features\auth\register                                                                         |          3 |         19 |          1 |         10 |         30 |
+| features\auth\register\data                                                                    |          1 |         -1 |          1 |         -1 |         -1 |
+| features\auth\register\data\data_sources                                                       |          1 |         -1 |          1 |         -1 |         -1 |
+| features\auth\register\presentation                                                            |          2 |         20 |          0 |         11 |         31 |
+| features\auth\register\presentation\manager                                                    |          2 |         20 |          0 |         11 |         31 |
+| features\auth\register\presentation\manager\cubits                                             |          2 |         20 |          0 |         11 |         31 |
+| features\auth\register\presentation\manager\cubits\sign_up                                     |          2 |         20 |          0 |         11 |         31 |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                       | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Dev\quent\lib\features\auth\register\data\data_sources\register_remote_data_source.dart     | Dart     |         -1 |          1 |         -1 |         -1 |
+| c:\Dev\quent\lib\features\auth\register\presentation\manager\cubits\sign_up\sign_up_cubit.dart | Dart     |          7 |          0 |          3 |         10 |
+| c:\Dev\quent\lib\features\auth\register\presentation\manager\cubits\sign_up\sign_up_state.dart | Dart     |         13 |          0 |          8 |         21 |
+| c:\Dev\quent\lib\main.dart                                                                     | Dart     |          6 |         10 |          5 |         21 |
+| Total                                                                                          |          |         25 |         11 |         15 |         51 |
++------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
