@@ -1,12 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../generated/assets.gen.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
 import '../../../../register/presentation/pages/sign_up_page.dart';
-import '../verify_reset_password_code_page.dart';
+import '../../manager/cubits/reset_password/reset_password_cubit.dart';
 
 class RequestResetPasswordPageBody extends StatefulWidget {
   const RequestResetPasswordPageBody({super.key});
@@ -74,21 +75,16 @@ class _RequestResetPasswordPageBodyState
                   const SizedBox(height: 28),
                   CustomButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        VerifyResetPasswordCodePage.routeName,
-                      );
-
-                      // if (_formKey.currentState!.validate()) {
-                      //   _formKey.currentState!.save();
-                      //   context
-                      //       .read<ResetPasswordCubit>()
-                      //       .requestPasswordResetCode(email: email);
-                      // } else {
-                      //   setState(() {
-                      //     autoValidateMode = AutovalidateMode.always;
-                      //   });
-                      // }
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context
+                            .read<ResetPasswordCubit>()
+                            .requestPasswordResetCode(email: email);
+                      } else {
+                        setState(() {
+                          autoValidateMode = AutovalidateMode.always;
+                        });
+                      }
                     },
                     text: "Continue",
                   ),

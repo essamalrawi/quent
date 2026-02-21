@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quent/features/auth/passwords/presentation/pages/widgets/new_password_page_body.dart';
+import 'package:quent/features/auth/passwords/presentation/pages/widgets/new_password_page_bloc_consumer.dart';
 
 class NewPasswordPage extends StatelessWidget {
   const NewPasswordPage({super.key});
@@ -8,6 +8,6 @@ class NewPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: NewPasswordPageBody());
+    return Scaffold(body: SafeArea(child: const NewPasswordPageBlocConsumer()));
   }
 }

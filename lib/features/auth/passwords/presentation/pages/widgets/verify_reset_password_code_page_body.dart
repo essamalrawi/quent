@@ -1,8 +1,13 @@
+import 'dart:developer';
+
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/features/auth/passwords/presentation/pages/new_passwrod_page.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
+import '../../../../../../core/cubit/otp_cubit/otp_cubit.dart';
 import '../../../../../../generated/assets.gen.dart';
 import '../../manager/cubits/reset_password/reset_password_cubit.dart';
 import '../../../../../../core/components/forms/otp_form.dart';
@@ -19,7 +24,7 @@ class _VerifyResetPasswordCodePageBodyState
     extends State<VerifyResetPasswordCodePageBody> {
   late String correctCode = context
       .read<ResetPasswordCubit>()
-      .requestPasswordResetCodeEntity
+      .forgotPasswordEntity
       .code;
 
   @override
@@ -57,44 +62,43 @@ class _VerifyResetPasswordCodePageBodyState
                 CustomButton(
                   text: "Continue",
                   onPressed: () {
-                    // final userCode = context.read<OtpCubit>().code;
-                    // log(userCode);
-                    // if (correctCode == userCode) {
-                    //   Navigator.pushReplacementNamed(
-                    //     context,
-                    //     NewPasswordView.routeName,
-                    //     arguments: context.read<ResetPasswordCubit>(),
-                    //   );
-                    // } else if (!(correctCode == userCode)) {
-                    //   if (userCode.length > 3) {
-                    //     Flushbar(
-                    //       title: "Error",
-                    //       message:
-                    //           "The code you entered is incorrect. Please try again.",
-                    //       duration: const Duration(seconds: 3),
-                    //       backgroundColor: const Color.fromARGB(255, 255, 0, 0),
-                    //       icon: const Icon(Icons.error, color: Colors.white),
-                    //       flushbarPosition: FlushbarPosition.TOP,
-                    //     ).show(context);
-                    //   } else {
-                    //     Flushbar(
-                    //       title: "Input Required",
-                    //       message:
-                    //           "Please fill in the required field before submitting.",
-                    //       duration: const Duration(seconds: 10),
-                    //       backgroundColor: const Color.fromARGB(
-                    //         255,
-                    //         255,
-                    //         165,
-                    //         0,
-                    //       ),
-                    //       icon: const Icon(Icons.warning, color: Colors.white),
-                    //       flushbarPosition: FlushbarPosition.TOP,
-                    //     ).show(context);
-                    //   }
-
-                    //   Prefs.setString(kAuthCode, "");
-                    // }
+                    final cubit = context.read<ResetPasswordCubit>();
+                    final userCode = context.read<OtpCubit>().code;
+                    final correctCode = cubit.forgotPasswordEntity!.code;
+                    if (correctCode == userCode) {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        NewPasswordPage.routeName,
+                        arguments: context.read<ResetPasswordCubit>(),
+                      );
+                    } else if (!(correctCode == userCode)) {
+                      if (userCode.length > 3) {
+                        Flushbar(
+                          title: "Error",
+                          message:
+                              "The code you entered is incorrect. Please try again.",
+                          duration: const Duration(seconds: 3),
+                          backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+                          icon: const Icon(Icons.error, color: Colors.white),
+                          flushbarPosition: FlushbarPosition.TOP,
+                        ).show(context);
+                      } else {
+                        Flushbar(
+                          title: "Input Required",
+                          message:
+                              "Please fill in the required field before submitting.",
+                          duration: const Duration(seconds: 10),
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            255,
+                            165,
+                            0,
+                          ),
+                          icon: const Icon(Icons.warning, color: Colors.white),
+                          flushbarPosition: FlushbarPosition.TOP,
+                        ).show(context);
+                      }
+                    }
                   },
                 ),
                 const Spacer(flex: 3),

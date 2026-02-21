@@ -46,8 +46,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case VerifyResetPasswordCodePage.routeName:
+      final cubit = settings.arguments as ResetPasswordCubit;
+
       return MaterialPageRoute(
-        builder: (_) => const VerifyResetPasswordCodePage(),
+        builder: (_) => BlocProvider.value(
+          value: cubit,
+          child: const VerifyResetPasswordCodePage(),
+        ),
       );
 
     case HomePage.routeName:

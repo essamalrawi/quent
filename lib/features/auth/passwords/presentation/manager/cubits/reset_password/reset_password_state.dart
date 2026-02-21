@@ -14,13 +14,13 @@ final class ResetPasswordFailure extends ResetPasswordState {
 }
 
 final class ResetPasswordRequestSuccess extends ResetPasswordState {
-  final RequestPasswordResetCodeEntity requestPasswordResetCodeEntity;
+  final ForgotPasswordEntity forgotPasswordEntity;
 
-  ResetPasswordRequestSuccess({required this.requestPasswordResetCodeEntity});
+  ResetPasswordRequestSuccess({required this.forgotPasswordEntity});
 }
 
 final class ResetPasswordSuccess extends ResetPasswordState {
-  final ResetPasswordEntity resetPasswordEntity;
+  final String resetPasswordEntity;
 
   ResetPasswordSuccess({required this.resetPasswordEntity});
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quent/features/auth/login/presentation/manager/cubits/sign_in/sign_in_cubit.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/buttons/social_login_button.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
@@ -11,14 +13,14 @@ import 'dont_have_an_account.dart';
 import 'forgot_password.dart';
 import 'or_divider.dart';
 
-class SignInViewBody extends StatefulWidget {
-  const SignInViewBody({super.key});
+class SignInPageBody extends StatefulWidget {
+  const SignInPageBody({super.key});
 
   @override
-  State<SignInViewBody> createState() => _SignInViewBodyState();
+  State<SignInPageBody> createState() => _SignInPageBodyState();
 }
 
-class _SignInViewBodyState extends State<SignInViewBody> {
+class _SignInPageBodyState extends State<SignInPageBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
@@ -61,7 +63,22 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   const SizedBox(height: 28),
                   const ForgotPassword(),
                   const SizedBox(height: 28),
-                  CustomButton(text: "Login"),
+                  CustomButton(
+                    text: "Login",
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<SignInCubit>().signIn(
+                          email: email,
+                          password: password,
+                        );
+                      } else {
+                        setState(() {
+                          autoValidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
                   const SizedBox(height: 18),
                   CustomButton(
                     onPressed: () {
