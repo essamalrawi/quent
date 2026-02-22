@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_register_countries_use_case.dart';
 import '../../../../../../../core/entities/country_entity.dart';
-
 part 'get_countries_state.dart';
 
 class GetCountriesCubit extends Cubit<GetCountriesState> {
@@ -12,14 +11,17 @@ class GetCountriesCubit extends Cubit<GetCountriesState> {
   final FetchFeaturedRegisterCountriesUseCase featuredRegisterCountriesUseCase;
 
   Future<void> getCountries() async {
+    if (isClosed) return;
     emit(GetCountriesLoading());
     final result = await featuredRegisterCountriesUseCase.call();
 
     result.fold(
       (failure) {
+        if (isClosed) return;
         emit(GetCountriesFailure(errorMessage: failure.message));
       },
       (countries) {
+        if (isClosed) return;
         emit(GetCountriesSuccess(countries: countries));
       },
     );

@@ -6,6 +6,10 @@ abstract class Failure {
   Failure(this.message);
 }
 
+class InvalidParamsFailure extends Failure {
+  InvalidParamsFailure(super.message);
+}
+
 class ServerFailure extends Failure {
   ServerFailure(super.message);
 

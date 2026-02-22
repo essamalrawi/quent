@@ -1,24 +1,24 @@
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/core/entities/verify_phone_entity.dart';
-
+import 'package:quent/features/auth/register/domain/use_cases/confirm_verify_code_use_case.dart';
+import 'package:quent/features/auth/register/domain/use_cases/request_verify_code_use_case.dart';
 import '../../../../../../../constants/auth_keys.dart';
 import '../../../../../../../core/services/secure_storage_singleton.dart';
-import '../../../../../login/domain/entities/request_verify_phone_entity.dart';
-import '../../../../domain/repos/register_repo.dart';
-
 part 'verify_phone_number_state.dart';
 
 class VerifyPhoneNumberCubit extends Cubit<VerifyPhoneNumberState> {
-  VerifyPhoneNumberCubit(this.registerRepo) : super(VerifyPhoneNumberInitial());
-  final RegisterRepo registerRepo;
-
+  VerifyPhoneNumberCubit({
+    required this.requestVerifyCodeUseCase,
+    required this.confirmVerifyCodeUseCase,
+  }) : super(VerifyPhoneNumberInitial());
+  final RequestVerifyCodeUseCase requestVerifyCodeUseCase;
+  final ConfirmVerifyCodeUseCase confirmVerifyCodeUseCase;
   Future<void> requestVerifyCode({required String phone}) async {
     emit(VerifyPhoneNumberLoading());
 
-    final result = await registerRepo.requestVerifyCode(phone: phone);
+    final result = await requestVerifyCodeUseCase.call(phone);
 
     result.fold(
       (failure) {
@@ -39,10 +39,12 @@ class VerifyPhoneNumberCubit extends Cubit<VerifyPhoneNumberState> {
   }) async {
     emit(VerifyPhoneNumberLoading());
 
-    final result = await registerRepo.confirmVerifyCode(
-      code: code,
-      verifyToken: verifyToken,
-      accessToken: accessToken,
+    final result = await confirmVerifyCodeUseCase.call(
+      ConfirmVerifyCodeParams(
+        code: code,
+        verifyToken: verifyToken,
+        accessToken: accessToken,
+      ),
     );
 
     result.fold(

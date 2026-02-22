@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quent/features/auth/passwords/presentation/pages/widgets/verify_reset_password_code_page_bloc_consumer.dart';
-import '../../../../../core/services/get_it_service.dart';
-import '../../data/repos/password_repo_impl.dart';
 import '../manager/cubits/reset_password/reset_password_cubit.dart';
 import '../../../../../core/cubit/otp_cubit/otp_cubit.dart';
 

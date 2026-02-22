@@ -1,21 +1,31 @@
 import 'package:dartz/dartz.dart';
-
 import 'package:quent/core/errors/faluire.dart';
+import 'package:quent/features/auth/login/data/repos/login_repo_impl.dart';
 
 import '../../../../../core/entities/full_user_entity.dart';
 import '../../../../../core/use_cases/use_cases.dart';
-import '../repos/login_repo.dart';
 
-class SignInUseCase extends UseCase<FullUserEntity, int> {
-  final LoginRepo loginRepo;
+class SignInUseCase extends UseCase<FullUserEntity, SignInParams> {
+  final LoginRepoImpl loginRepoimpl;
 
-  SignInUseCase(this.loginRepo);
+  SignInUseCase(this.loginRepoimpl);
 
   @override
-  Future<Either<Failure, FullUserEntity>> call([int param = 0]) {
-    // TODO: implement call
-    throw UnimplementedError();
-  }
+  Future<Either<Failure, FullUserEntity>> call([SignInParams? param]) async {
+    if (param == null) {
+      return Left(InvalidParamsFailure("Invalid params failure"));
+    }
 
-  // TODO: add implementation
+    return await loginRepoimpl.signIn(
+      email: param.email,
+      password: param.password,
+    );
+  }
+}
+
+class SignInParams {
+  final String email;
+  final String password;
+
+  SignInParams({required this.email, required this.password});
 }

@@ -6,13 +6,13 @@ import '../../../../../core/use_cases/use_cases.dart';
 import '../repos/register_repo.dart';
 
 class FetchFeaturedRegisterLocationsUseCase
-    extends UseCase<List<LocationEntity>, int> {
+    extends UseCase<List<LocationEntity>, NoParam> {
   final RegisterRepo registerRepo;
 
   FetchFeaturedRegisterLocationsUseCase(this.registerRepo);
 
   @override
-  Future<Either<Failure, List<LocationEntity>>> call([int param = 0]) async {
+  Future<Either<Failure, List<LocationEntity>>> call([NoParam? param]) async {
     return await registerRepo.fetchLocations();
   }
 }

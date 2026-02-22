@@ -5,13 +5,13 @@ import '../../../../../core/errors/faluire.dart';
 import '../../../../../core/use_cases/use_cases.dart';
 
 class FetchFeaturedRegisterCountriesUseCase
-    extends UseCase<List<CountryEntity>, int> {
+    extends UseCase<List<CountryEntity>, NoParam> {
   final RegisterRepo registerRepo;
 
   FetchFeaturedRegisterCountriesUseCase(this.registerRepo);
 
   @override
-  Future<Either<Failure, List<CountryEntity>>> call([int param = 0]) async {
+  Future<Either<Failure, List<CountryEntity>>> call([NoParam? param]) async {
     return await registerRepo.fetchCountries();
   }
 }

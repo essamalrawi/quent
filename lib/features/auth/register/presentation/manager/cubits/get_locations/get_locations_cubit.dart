@@ -14,14 +14,17 @@ class GetLocationsCubit extends Cubit<GetLocationsState> {
   fetchFeaturedRegisterLocationsUseCase;
 
   Future<void> getLocations() async {
+    if (isClosed) return;
     emit(GetLocationsLoading());
     final result = await fetchFeaturedRegisterLocationsUseCase.call();
 
     result.fold(
       (failure) {
+        if (isClosed) return;
         emit(GetLocationsFailure(errorMessage: failure.message));
       },
       (locations) {
+        if (isClosed) return;
         emit(GetLocationsSuccess(locations: locations));
       },
     );

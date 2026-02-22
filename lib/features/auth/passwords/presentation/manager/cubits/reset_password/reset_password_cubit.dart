@@ -1,25 +1,25 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:quent/features/auth/passwords/data/repos/password_repo_impl.dart';
 import 'package:quent/features/auth/passwords/domain/entities/forgot_password_entity.dart';
+import 'package:quent/features/auth/passwords/domain/use_cases/forgot_password_use_case.dart';
+import 'package:quent/features/auth/passwords/domain/use_cases/reset_password_use_case.dart';
 
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit(this.passwordRepoImpl) : super(ResetPasswordInitial());
+  ResetPasswordCubit(this.forgotPasswordUseCase, this.resetPasswordUseCase)
+    : super(ResetPasswordInitial());
 
-  final PasswordRepoImpl passwordRepoImpl;
   late String code = "";
 
+  final ForgotPasswordUseCase forgotPasswordUseCase;
+  final ResetPasswordUseCase resetPasswordUseCase;
   late ForgotPasswordEntity forgotPasswordEntity;
 
   Future<void> requestPasswordResetCode({required String email}) async {
     emit(ResetPasswordLoading());
 
-    final result = await passwordRepoImpl.forgotPassword(email: email);
-    log("HEWWWOOOO1");
+    final result = await forgotPasswordUseCase.call(email);
     result.fold(
       (failure) {
         emit(ResetPasswordFailure(errorMessage: failure.message));
@@ -39,11 +39,13 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }) async {
     emit(ResetPasswordLoading());
 
-    final result = await passwordRepoImpl.resetPassword(
-      resetToken: resetToken,
-      code: code,
-      password: password,
-      confirmPassword: confirmPassword,
+    final result = await resetPasswordUseCase.call(
+      ResetPasswordParams(
+        resetToken: resetToken,
+        code: code,
+        password: password,
+        confirmPassword: confirmPassword,
+      ),
     );
 
     result.fold(

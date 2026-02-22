@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/core/entities/full_user_entity.dart';
-import 'package:quent/features/auth/register/domain/repos/register_repo.dart';
-
+import 'package:quent/features/auth/register/domain/use_cases/sign_up_use_case.dart';
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit(this.registerRepo) : super(SignUpInitial());
+  SignUpCubit(this.signUpUseCase) : super(SignUpInitial());
 
-  final RegisterRepo registerRepo;
+  final SignUpUseCase signUpUseCase;
 
   Future<void> signUp({
     required String fullName,
@@ -23,21 +22,22 @@ class SignUpCubit extends Cubit<SignUpState> {
   }) async {
     emit(SignUpLoading());
 
-    final result = await registerRepo.signUp(
-      fullName: fullName,
-      email: email,
-      password: password,
-      countryId: countryId,
-      phone: phone,
-      createCar: createCar,
-      locationId: locationId,
-      nationalId: nationalId,
-      dateOfBirth: dateOfBirth,
+    final result = await signUpUseCase.call(
+      SignUpParams(
+        fullName: fullName,
+        email: email,
+        password: password,
+        countryId: countryId,
+        phone: phone,
+        createCar: createCar,
+        locationId: locationId,
+        nationalId: nationalId,
+        dateOfBirth: dateOfBirth,
+      ),
     );
 
     result.fold(
       (failure) {
-        print(failure.message);
         emit(SignUpFailure(errorMessage: failure.message));
       },
       (userEntity) {
