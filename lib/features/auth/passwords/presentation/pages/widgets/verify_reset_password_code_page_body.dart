@@ -62,7 +62,7 @@ class _VerifyResetPasswordCodePageBodyState
                   onPressed: () {
                     final cubit = context.read<ResetPasswordCubit>();
                     final userCode = context.read<OtpCubit>().code;
-                    final correctCode = cubit.forgotPasswordEntity!.code;
+                    final correctCode = cubit.forgotPasswordEntity.code;
                     if (correctCode == userCode) {
                       Navigator.pushReplacementNamed(
                         context,

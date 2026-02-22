@@ -77,14 +77,10 @@ class _NewPasswordPageBodyState extends State<NewPasswordPageBody> {
                               .read<ResetPasswordCubit>()
                               .forgotPasswordEntity;
 
-                          // log(
-                          //   "${data.code} ${data.resetToken} $password $confirmPassword",
-                          // );
-
                           context
                               .read<ResetPasswordCubit>()
                               .resetPasswordResetCode(
-                                resetToken: data!.resetToken,
+                                resetToken: data.resetToken,
                                 code: data.code,
                                 password: password,
                                 confirmPassword: confirmPassword,

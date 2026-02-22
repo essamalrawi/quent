@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/core/entities/full_user_entity.dart';
-import 'package:quent/features/auth/login/domain/repos/login_repo.dart';
 import 'package:quent/features/auth/login/domain/use_cases/sign_in_use_case.dart';
 
 part 'sign_in_state.dart';
