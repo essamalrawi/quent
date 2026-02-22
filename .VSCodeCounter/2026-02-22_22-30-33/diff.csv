@@ -1,0 +1,7 @@
+"filename", "language", "Dart", "comment", "blank", "total"
+"/home/dreamkiller/Dev/quent/lib/core/services/get_it_service.dart", "Dart", 5, 0, 0, 5
+"/home/dreamkiller/Dev/quent/lib/features/auth/login/domain/use_cases/sign_in_use_case.dart", "Dart", 11, -2, 1, 10
+"/home/dreamkiller/Dev/quent/lib/features/auth/login/presentation/manager/cubits/sign_in/sign_in_cubit.dart", "Dart", 2, 0, 0, 2
+"/home/dreamkiller/Dev/quent/lib/features/auth/passwords/presentation/pages/widgets/new_password_page_body.dart", "Dart", -1, 0, 0, -1
+"/home/dreamkiller/Dev/quent/lib/features/auth/passwords/presentation/pages/widgets/verify_reset_password_code_page_body.dart", "Dart", -1, 0, -1, -2
+"Total", "-", 16, -2, 0, 14
