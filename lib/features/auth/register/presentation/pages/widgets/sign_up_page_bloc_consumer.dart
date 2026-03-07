@@ -29,7 +29,7 @@ class SignUpPageBlocConsumer extends StatelessWidget {
             message: state.errorMessage,
             duration: const Duration(seconds: 5),
             backgroundColor: const Color(0xFFE53935),
- 
+
             icon: const Icon(Icons.error_outline, color: Colors.white),
             flushbarPosition: FlushbarPosition.TOP,
             borderRadius: BorderRadius.circular(8),

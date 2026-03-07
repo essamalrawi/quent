@@ -130,7 +130,7 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
       "code": code.trim(),
       "verify_token": verifyToken.trim(),
     });
-    var data = await apiService.post(
+    await apiService.post(
       endPoint: 'auth/phone/confirm_verify_code/',
       data: formData,
       options: Options(headers: {'Authorization': 'Bearer $accessToken'}),

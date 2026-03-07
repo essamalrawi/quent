@@ -7,7 +7,6 @@ import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
 import '../../../../../../generated/assets.gen.dart';
 import '../../manager/cubits/verify_phone_number/verify_phone_number_cubit.dart';
-import '../verification_code_page.dart';
 import 'country_search_bar_suggestions.dart';
 
 class VerifyYourPhoneNumberPageBody extends StatefulWidget {
