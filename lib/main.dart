@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
+import 'package:quent/features/main/home/presentation/pages/home_page.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/get_it_service.dart';
 import 'core/services/shared_preferences_singleton.dart';
-import 'features/on_boarding/presentation/pages/on_boarding_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
   Bloc.observer = CustomBlocObserver();
   await Prefs.init();
   setupGetIt();
@@ -24,7 +32,7 @@ class QuentApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xffF8F8F8)),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: OnBoardingPage.routeName,
+      initialRoute: HomePage.routeName,
     );
   }
 }

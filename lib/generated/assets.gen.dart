@@ -28,10 +28,6 @@ class $AssetsImagesGen {
   AssetGenImage get onBoardingPageTwo =>
       const AssetGenImage('assets/images/on_boarding_page_two.png');
 
-  /// File path: assets/images/profile_pic.png
-  AssetGenImage get profilePic =>
-      const AssetGenImage('assets/images/profile_pic.png');
-
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -62,6 +58,10 @@ class $AssetsImagesGen {
   AssetGenImage get testLamborghini =>
       const AssetGenImage('assets/images/test_lamborghini.png');
 
+  /// File path: assets/images/test_person_icon.png
+  AssetGenImage get testPersonIcon =>
+      const AssetGenImage('assets/images/test_person_icon.png');
+
   /// File path: assets/images/test_tesla.png
   AssetGenImage get testTesla =>
       const AssetGenImage('assets/images/test_tesla.png');
@@ -74,7 +74,6 @@ class $AssetsImagesGen {
     logo,
     onBoardingPageOne,
     onBoardingPageTwo,
-    profilePic,
     splash,
     splashForModernAndroid,
     testWhiteFerrariFfCar,
@@ -83,6 +82,7 @@ class $AssetsImagesGen {
     testCar,
     testFerrari,
     testLamborghini,
+    testPersonIcon,
     testTesla,
     testcar,
   ];
