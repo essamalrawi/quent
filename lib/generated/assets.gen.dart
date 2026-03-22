@@ -147,6 +147,9 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/images/icon/icon.png');
 
+  /// File path: assets/images/icon/icon_search_bar.svg
+  String get iconSearchBar => 'assets/images/icon/icon_search_bar.svg';
+
   /// File path: assets/images/icon/inactive_home.svg
   String get inactiveHome => 'assets/images/icon/inactive_home.svg';
 
@@ -169,6 +172,9 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/message.svg
   String get message => 'assets/images/icon/message.svg';
 
+  /// File path: assets/images/icon/notification.svg
+  String get notification => 'assets/images/icon/notification.svg';
+
   /// File path: assets/images/icon/notifications.svg
   String get notifications => 'assets/images/icon/notifications.svg';
 
@@ -189,6 +195,9 @@ class $AssetsImagesIconGen {
 
   /// File path: assets/images/icon/seet.svg
   String get seet => 'assets/images/icon/seet.svg';
+
+  /// File path: assets/images/icon/settings.svg
+  String get settings => 'assets/images/icon/settings.svg';
 
   /// File path: assets/images/icon/show_password_icon.svg
   String get showPasswordIcon => 'assets/images/icon/show_password_icon.svg';
@@ -222,6 +231,7 @@ class $AssetsImagesIconGen {
     googleLogo,
     heart,
     icon,
+    iconSearchBar,
     inactiveHome,
     inactiveInbox,
     inactiveNotifications,
@@ -229,6 +239,7 @@ class $AssetsImagesIconGen {
     inactiveUser,
     location,
     message,
+    notification,
     notifications,
     phone,
     priceRange,
@@ -236,6 +247,7 @@ class $AssetsImagesIconGen {
     rightArrow,
     search,
     seet,
+    settings,
     showPasswordIcon,
     star,
     switcherIcon,

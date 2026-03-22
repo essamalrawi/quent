@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:quent/core/resources/app_styles.dart';
+
+class UnActiveSelector extends StatelessWidget {
+  const UnActiveSelector({super.key, required this.image, required this.text});
+  final String image, text;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(5),
+      height: 42,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(60),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: Colors.white,
+
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: Center(child: Image.asset(image)),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            text,
+            style: AppStyles.semibold30(
+              context,
+            ).copyWith(fontSize: 12, color: const Color(0xff7F7F7F)),
+          ),
+          const SizedBox(width: 10),
+        ],
+      ),
+    );
+  }
+}

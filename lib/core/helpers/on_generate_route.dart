@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quent/features/main/main/presentation/main_page.dart';
+import 'package:quent/features/main/search/presentation/search_page.dart';
 import '../../features/auth/login/presentation/pages/sign_in_page.dart';
 import '../../features/auth/passwords/presentation/manager/cubits/reset_password/reset_password_cubit.dart';
 import '../../features/auth/passwords/presentation/pages/new_passwrod_page.dart';
@@ -15,6 +17,8 @@ import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case MainPage.routeName:
+      return CupertinoPageRoute(builder: (context) => MainPage());
     case OnBoardingPage.routeName:
       return CupertinoPageRoute(builder: (context) => OnBoardingPage());
     case SignUpPage.routeName:
@@ -44,7 +48,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) => const VerifyYourPhoneNumberPage(),
       );
-
+    case SearchPage.routeName:
+      return MaterialPageRoute(builder: (_) => const SearchPage());
     case VerifyResetPasswordCodePage.routeName:
       final cubit = settings.arguments as ResetPasswordCubit;
 
