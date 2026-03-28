@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
 import 'package:quent/core/components/forms/otp_form.dart';
-import '../../../../../../constants/auth_keys.dart';
+import '../../../../../../core/constants/auth_cached_keys.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/services/secure_storage_singleton.dart';
 import '../../../../../../generated/assets.gen.dart';

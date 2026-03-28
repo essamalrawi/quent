@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'CustomOtpTextFormField.dart';
+import 'custom_otp_text_form_field.dart';
 import '../../cubit/otp_cubit/otp_cubit.dart';
 
 class OtpForm extends StatefulWidget {

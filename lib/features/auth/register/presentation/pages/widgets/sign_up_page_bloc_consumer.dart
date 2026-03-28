@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:quent/features/auth/register/presentation/pages/verify_your_phone_number_page.dart';
 import 'package:quent/features/auth/register/presentation/pages/widgets/sign_up_page_body.dart';
-import '../../../../../../constants/auth_keys.dart';
+import '../../../../../../core/constants/auth_cached_keys.dart';
 import '../../../../../../core/services/secure_storage_singleton.dart';
 import '../../manager/cubits/sign_up/sign_up_cubit.dart';
 

@@ -1,10 +1,11 @@
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/core/entities/verify_phone_entity.dart';
 import 'package:quent/features/auth/register/domain/use_cases/confirm_verify_code_use_case.dart';
 import 'package:quent/features/auth/register/domain/use_cases/request_verify_code_use_case.dart';
-import '../../../../../../../constants/auth_keys.dart';
+import '../../../../../../../core/constants/auth_cached_keys.dart';
 import '../../../../../../../core/services/secure_storage_singleton.dart';
 part 'verify_phone_number_state.dart';
 

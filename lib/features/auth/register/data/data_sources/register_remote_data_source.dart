@@ -6,7 +6,7 @@ import 'package:quent/core/entities/verify_phone_entity.dart';
 import 'package:quent/core/models/country_model.dart';
 import 'package:quent/core/models/full_user_model.dart';
 import 'package:quent/core/models/location_model.dart';
-import '../../../../../constants/auth_keys.dart';
+import '../../../../../core/constants/auth_cached_keys.dart';
 import '../../../../../core/models/verify_phone_model.dart';
 import '../../../../../core/services/secure_storage_singleton.dart';
 import '../../../../../core/utils/api_service.dart';

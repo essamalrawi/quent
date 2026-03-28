@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:quent/features/auth/passwords/domain/entities/forgot_password_entity.dart';
 import 'package:quent/features/auth/passwords/domain/use_cases/forgot_password_use_case.dart';
