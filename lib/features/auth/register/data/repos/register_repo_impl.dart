@@ -1,16 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:quent/core/utils/typedefs.dart';
-
 import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
 import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
-
 import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
 import 'package:quent/features/shared_features/data/domain/entities/verify_phone_entity.dart';
-
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/features/auth/register/data/data_sources/register_remote_data_source.dart';
-
 import '../../domain/repos/register_repo.dart';
 
 class RegisterRepoImpl extends RegisterRepo {

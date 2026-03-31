@@ -1,8 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:quent/core/utils/typedefs.dart';
 import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
-
-import '../../../../../core/errors/faluire.dart';
 import '../../../../../core/use_cases/use_cases.dart';
 import '../repos/register_repo.dart';
 

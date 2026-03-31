@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
 import 'package:quent/features/on_boarding/presentation/pages/on_boarding_page.dart';
+import 'package:quent/generated/l10n.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/get_it_service.dart';
 import 'core/services/shared_preferences_singleton.dart';
@@ -29,6 +31,14 @@ class QuentApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: const Locale('en'),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xffF8F8F8)),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,

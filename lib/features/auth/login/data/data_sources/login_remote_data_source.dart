@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:quent/core/constants/endpoints.dart';
-
 import '../../../../shared_features/data/domain/entities/full_user_entity.dart';
 import '../../../../shared_features/data/domain/models/full_user_model.dart';
 import '../../../../../core/utils/api_service.dart';

@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/core/utils/typedefs.dart';
 import 'package:quent/features/auth/login/data/repos/login_repo_impl.dart';
-
 import '../../../../shared_features/data/domain/entities/full_user_entity.dart';
 import '../../../../../core/use_cases/use_cases.dart';
 
