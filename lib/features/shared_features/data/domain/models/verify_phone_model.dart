@@ -1,4 +1,4 @@
-import 'package:quent/core/entities/verify_phone_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/verify_phone_entity.dart';
 
 class VerifyPhoneModel extends VerifyPhoneEntity {
   VerifyPhoneModel({required super.code, required super.verifyToken});

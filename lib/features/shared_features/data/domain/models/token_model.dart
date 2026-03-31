@@ -1,4 +1,4 @@
-import 'package:quent/core/entities/token_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/token_entity.dart';
 
 class TokenModel extends TokenEntity {
   TokenModel(super.access, super.refresh);

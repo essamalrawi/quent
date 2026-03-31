@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:quent/core/constants/endpoints.dart';
 
-import '../../../../../core/entities/full_user_entity.dart';
-import '../../../../../core/models/full_user_model.dart';
+import '../../../../shared_features/data/domain/entities/full_user_entity.dart';
+import '../../../../shared_features/data/domain/models/full_user_model.dart';
 import '../../../../../core/utils/api_service.dart';
 
 abstract class LoginRemoteDataSource {
@@ -26,7 +27,7 @@ class LoginRemoteDataSourceImpl extends LoginRemoteDataSource {
       "password": password,
     });
 
-    var data = await apiService.post(endPoint: 'auth/login/', data: formData);
+    var data = await apiService.post(endPoint: Endpoints.login, data: formData);
 
     return FullUserModel.fromJson(data);
   }

@@ -1,4 +1,4 @@
-import 'package:quent/core/entities/country_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
 
 class CountryModel extends CountryEntity {
   CountryModel({

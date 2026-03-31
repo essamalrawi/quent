@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
+import 'package:quent/core/utils/typedefs.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/core/use_cases/use_cases.dart';
 import 'package:quent/features/auth/register/domain/repos/register_repo.dart';
@@ -10,7 +11,7 @@ class SignUpUseCase extends UseCase<FullUserEntity, SignUpParams> {
   SignUpUseCase(this.registerRepo);
 
   @override
-  Future<Either<Failure, FullUserEntity>> call([SignUpParams? signUp]) async {
+  ResultFuture<FullUserEntity> call([SignUpParams? signUp]) async {
     if (signUp == null) {
       return Left(InvalidParamsFailure("Invalid params failure"));
     }

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:quent/core/errors/faluire.dart';
+import 'package:quent/core/utils/typedefs.dart';
 import 'package:quent/features/auth/passwords/data/data_sources/password_remote_data_source.dart';
 
 import 'package:quent/features/auth/passwords/domain/entities/forgot_password_entity.dart';
@@ -13,7 +14,7 @@ class PasswordRepoImpl extends PasswordRepo {
   PasswordRepoImpl(this.passwordRemoteDataSourceImpl);
 
   @override
-  Future<Either<Failure, ForgotPasswordEntity>> forgotPassword({
+  ResultFuture<ForgotPasswordEntity> forgotPassword({
     required String email,
   }) async {
     try {
@@ -30,7 +31,7 @@ class PasswordRepoImpl extends PasswordRepo {
   }
 
   @override
-  Future<Either<Failure, String>> resetPassword({
+  ResultFuture<String> resetPassword({
     required String resetToken,
     required String code,
     required String password,

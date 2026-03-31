@@ -1,16 +1,17 @@
 import 'package:dartz/dartz.dart';
-import 'package:quent/core/entities/country_entity.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
-import 'package:quent/core/entities/location_entity.dart';
-import '../../../../../core/entities/verify_phone_entity.dart';
+import 'package:quent/core/utils/typedefs.dart';
+import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
+import '../../../../shared_features/data/domain/entities/verify_phone_entity.dart';
 import '../../../../../core/errors/faluire.dart';
 
 abstract class RegisterRepo {
-  Future<Either<Failure, List<CountryEntity>>> fetchCountries();
+  ResultFuture<List<CountryEntity>> fetchCountries();
 
-  Future<Either<Failure, List<LocationEntity>>> fetchLocations();
+  ResultFuture<List<LocationEntity>> fetchLocations();
 
-  Future<Either<Failure, FullUserEntity>> signUp({
+  ResultFuture<FullUserEntity> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -22,11 +23,9 @@ abstract class RegisterRepo {
     String? dateOfBirth,
   });
 
-  Future<Either<Failure, VerifyPhoneEntity>> requestVerifyCode({
-    required String phone,
-  });
+  ResultFuture<VerifyPhoneEntity> requestVerifyCode({required String phone});
 
-  Future<Either<Failure, void>> confirmVerifyCode({
+  ResultFuture<void> confirmVerifyCode({
     required String code,
     required String verifyToken,
     required String accessToken,

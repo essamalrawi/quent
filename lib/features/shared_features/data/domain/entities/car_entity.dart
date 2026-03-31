@@ -1,6 +1,6 @@
-import 'package:quent/core/entities/country_entity.dart';
-import 'package:quent/core/entities/location_entity.dart';
-import 'package:quent/core/entities/reviews_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/reviews_entity.dart';
 import 'package:quent/features/main/home/domain/entities/brand_entity.dart';
 
 class CarEntity {

@@ -1,4 +1,4 @@
-import 'package:quent/core/entities/location_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
 
 class LocationModel extends LocationEntity {
   LocationModel({

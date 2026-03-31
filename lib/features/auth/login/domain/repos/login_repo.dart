@@ -1,10 +1,9 @@
-import 'package:dartz/dartz.dart';
-import 'package:quent/core/errors/faluire.dart';
+import 'package:quent/core/utils/typedefs.dart';
 
-import '../../../../../core/entities/full_user_entity.dart';
+import '../../../../shared_features/data/domain/entities/full_user_entity.dart';
 
 abstract class LoginRepo {
-  Future<Either<Failure, FullUserEntity>> signIn({
+  ResultFuture<FullUserEntity> signIn({
     required String email,
     required String password,
   });

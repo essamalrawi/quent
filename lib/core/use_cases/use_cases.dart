@@ -1,9 +1,7 @@
-import 'package:dartz/dartz.dart';
-
-import '../errors/faluire.dart';
+import 'package:quent/core/utils/typedefs.dart';
 
 abstract class UseCase<Type, Params> {
-  Future<Either<Failure, Type>> call([Params param]);
+  ResultFuture<Type> call([Params param]);
 }
 
 class NoParam {}

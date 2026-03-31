@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
-import 'package:quent/core/entities/car_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
 
 class NearbyCar extends StatelessWidget {
   const NearbyCar({super.key, required this.car});

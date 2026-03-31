@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
 import 'package:quent/features/auth/register/domain/use_cases/sign_up_use_case.dart';
 part 'sign_up_state.dart';
 

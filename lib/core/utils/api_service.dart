@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:quent/core/constants/endpoints.dart';
 
 class ApiService {
   final Dio _dio;
 
-  final baseUrl = "https://qent.azurewebsites.net/api/";
+  final baseUrl = Endpoints.baseUrl;
 
   ApiService(this._dio);
 

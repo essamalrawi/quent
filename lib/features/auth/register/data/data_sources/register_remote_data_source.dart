@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
-import 'package:quent/core/entities/country_entity.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
-import 'package:quent/core/entities/location_entity.dart';
-import 'package:quent/core/entities/verify_phone_entity.dart';
-import 'package:quent/core/models/country_model.dart';
-import 'package:quent/core/models/full_user_model.dart';
-import 'package:quent/core/models/location_model.dart';
+import 'package:quent/core/constants/endpoints.dart';
+import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/verify_phone_entity.dart';
+import 'package:quent/features/shared_features/data/domain/models/country_model.dart';
+import 'package:quent/features/shared_features/data/domain/models/full_user_model.dart';
+import 'package:quent/features/shared_features/data/domain/models/location_model.dart';
 import '../../../../../core/constants/auth_cached_keys.dart';
-import '../../../../../core/models/verify_phone_model.dart';
+import '../../../../shared_features/data/domain/models/verify_phone_model.dart';
 import '../../../../../core/services/secure_storage_singleton.dart';
 import '../../../../../core/utils/api_service.dart';
 
@@ -44,16 +45,14 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
 
   @override
   Future<List<CountryEntity>> getCountries() async {
-    var data = await apiService.get(
-      endPoint: 'public/countries/?page_size=245',
-    );
+    var data = await apiService.get(endPoint: Endpoints.getCountries);
     List<CountryEntity> countries = getCountryList(data);
     return countries;
   }
 
   @override
   Future<List<LocationEntity>> getLocations() async {
-    var data = await apiService.get(endPoint: 'public/register_locations');
+    var data = await apiService.get(endPoint: Endpoints.getLocations);
     List<LocationEntity> locations = getLocationList(data);
     return locations;
   }
@@ -83,7 +82,7 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
     });
 
     var data = await apiService.post(
-      endPoint: 'auth/register/',
+      endPoint: Endpoints.register,
       data: formData,
     );
     // print("DATA: " + data['tokens']['access']);
@@ -113,7 +112,7 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
     var token = await SecurePrefs.getString(kAccessToken);
 
     var data = await apiService.post(
-      endPoint: 'auth/phone/request_verify_code/',
+      endPoint: Endpoints.requestVerifyCode,
       data: formData,
       options: Options(headers: {'Authorization': 'Bearer $token'}),
     );
@@ -131,7 +130,7 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSource {
       "verify_token": verifyToken.trim(),
     });
     await apiService.post(
-      endPoint: 'auth/phone/confirm_verify_code/',
+      endPoint: Endpoints.confirmVerifyCode,
       data: formData,
       options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
     );

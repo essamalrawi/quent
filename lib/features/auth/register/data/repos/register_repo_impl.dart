@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:quent/core/utils/typedefs.dart';
 
-import 'package:quent/core/entities/country_entity.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/country_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
 
-import 'package:quent/core/entities/location_entity.dart';
-import 'package:quent/core/entities/verify_phone_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/verify_phone_entity.dart';
 
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/features/auth/register/data/data_sources/register_remote_data_source.dart';
@@ -18,7 +19,7 @@ class RegisterRepoImpl extends RegisterRepo {
   RegisterRepoImpl(this.registerRemoteDataSource);
 
   @override
-  Future<Either<Failure, List<CountryEntity>>> fetchCountries() async {
+  ResultFuture<List<CountryEntity>> fetchCountries() async {
     List<CountryEntity> countries;
 
     try {
@@ -33,7 +34,7 @@ class RegisterRepoImpl extends RegisterRepo {
   }
 
   @override
-  Future<Either<Failure, List<LocationEntity>>> fetchLocations() async {
+  ResultFuture<List<LocationEntity>> fetchLocations() async {
     List<LocationEntity> locations;
 
     try {
@@ -48,7 +49,7 @@ class RegisterRepoImpl extends RegisterRepo {
   }
 
   @override
-  Future<Either<Failure, FullUserEntity>> signUp({
+  ResultFuture<FullUserEntity> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -83,7 +84,7 @@ class RegisterRepoImpl extends RegisterRepo {
   }
 
   @override
-  Future<Either<Failure, VerifyPhoneEntity>> requestVerifyCode({
+  ResultFuture<VerifyPhoneEntity> requestVerifyCode({
     required String phone,
   }) async {
     VerifyPhoneEntity result;
@@ -99,7 +100,7 @@ class RegisterRepoImpl extends RegisterRepo {
   }
 
   @override
-  Future<Either<Failure, void>> confirmVerifyCode({
+  ResultFuture<void> confirmVerifyCode({
     required String code,
     required String verifyToken,
     required String accessToken,

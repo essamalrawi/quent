@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:quent/core/entities/full_user_entity.dart';
+import 'package:quent/core/utils/typedefs.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/features/auth/login/data/data_sources/login_remote_data_source.dart';
 import 'package:quent/features/auth/login/domain/repos/login_repo.dart';
@@ -11,7 +12,7 @@ class LoginRepoImpl extends LoginRepo {
   LoginRepoImpl(this.loginRemoteDataSourceImpl);
 
   @override
-  Future<Either<Failure, FullUserEntity>> signIn({
+  ResultFuture<FullUserEntity> signIn({
     required String email,
     required String password,
   }) async {

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:quent/core/constants/endpoints.dart';
 import 'package:quent/core/utils/api_service.dart';
 import 'package:quent/features/auth/passwords/data/models/forgot_password_model.dart';
 import 'package:quent/features/auth/passwords/domain/entities/forgot_password_entity.dart';
@@ -23,7 +24,7 @@ class PasswordRemoteDataSourceImpl extends PasswordRemoteDataSource {
   Future<ForgotPasswordEntity> forgotPassword({required String email}) async {
     final formData = FormData.fromMap({"email": email.trim()});
     final data = await apiService.post(
-      endPoint: "auth/forgot_password/",
+      endPoint: Endpoints.forgotPassword,
       data: formData,
     );
 
@@ -44,7 +45,7 @@ class PasswordRemoteDataSourceImpl extends PasswordRemoteDataSource {
       "confirm_password": confirmPassword.trim(),
     });
     final data = await apiService.post(
-      endPoint: "auth/reset_password/",
+      endPoint: Endpoints.resetPassword,
       data: formData,
     );
 

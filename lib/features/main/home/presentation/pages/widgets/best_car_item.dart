@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:quent/core/entities/car_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
 import 'package:quent/core/resources/app_styles.dart';
 import 'package:quent/generated/assets.gen.dart';
 

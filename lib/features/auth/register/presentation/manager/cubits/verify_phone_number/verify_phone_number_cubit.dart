@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:quent/core/entities/verify_phone_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/verify_phone_entity.dart';
 import 'package:quent/features/auth/register/domain/use_cases/confirm_verify_code_use_case.dart';
 import 'package:quent/features/auth/register/domain/use_cases/request_verify_code_use_case.dart';
 import '../../../../../../../core/constants/auth_cached_keys.dart';

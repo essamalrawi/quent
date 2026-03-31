@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:quent/core/entities/location_entity.dart';
+import 'package:quent/core/utils/typedefs.dart';
+import 'package:quent/features/shared_features/data/domain/entities/location_entity.dart';
 
 import '../../../../../core/errors/faluire.dart';
 import '../../../../../core/use_cases/use_cases.dart';
@@ -12,7 +13,7 @@ class FetchFeaturedRegisterLocationsUseCase
   FetchFeaturedRegisterLocationsUseCase(this.registerRepo);
 
   @override
-  Future<Either<Failure, List<LocationEntity>>> call([NoParam? param]) async {
+  ResultFuture<List<LocationEntity>> call([NoParam? param]) async {
     return await registerRepo.fetchLocations();
   }
 }

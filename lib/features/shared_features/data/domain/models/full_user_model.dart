@@ -1,6 +1,6 @@
-import 'package:quent/core/entities/full_user_entity.dart';
-import 'package:quent/core/models/token_model.dart';
-import 'package:quent/core/models/user_model.dart';
+import 'package:quent/features/shared_features/data/domain/entities/full_user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/models/token_model.dart';
+import 'package:quent/features/shared_features/data/domain/models/user_model.dart';
 
 class FullUserModel extends FullUserEntity {
   FullUserModel({required super.user, required super.token});

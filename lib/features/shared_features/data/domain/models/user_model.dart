@@ -1,6 +1,6 @@
-import 'package:quent/core/entities/user_entity.dart';
-import 'package:quent/core/models/country_model.dart';
-import 'package:quent/core/models/location_model.dart';
+import 'package:quent/features/shared_features/data/domain/entities/user_entity.dart';
+import 'package:quent/features/shared_features/data/domain/models/country_model.dart';
+import 'package:quent/features/shared_features/data/domain/models/location_model.dart';
 
 class UserModel extends UserEntity {
   UserModel(

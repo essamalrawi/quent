@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:quent/core/entities/car_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
 
 part 'best_cars_state.dart';
 

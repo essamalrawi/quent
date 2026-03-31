@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../generated/assets.gen.dart';
-import '../../../../../../core/entities/country_entity.dart';
+import '../../../../../shared_features/data/domain/entities/country_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../manager/cubits/get_countries/get_countries_cubit.dart';

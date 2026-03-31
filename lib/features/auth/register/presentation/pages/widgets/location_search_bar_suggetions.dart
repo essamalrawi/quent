@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../generated/assets.gen.dart';
-import '../../../../../../core/entities/location_entity.dart';
+import '../../../../../shared_features/data/domain/entities/location_entity.dart';
 import '../../manager/cubits/get_locations/get_locations_cubit.dart';
 
 class LocationSearchBarSuggestions extends StatefulWidget {

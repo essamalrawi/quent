@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:quent/core/errors/faluire.dart';
 import 'package:quent/core/use_cases/use_cases.dart';
+import 'package:quent/core/utils/typedefs.dart';
 import 'package:quent/features/auth/passwords/domain/repos/password_repo.dart';
 
 class ResetPasswordUseCase extends UseCase<String, ResetPasswordParams> {
@@ -9,7 +10,7 @@ class ResetPasswordUseCase extends UseCase<String, ResetPasswordParams> {
   ResetPasswordUseCase({required this.passwordRepo});
 
   @override
-  Future<Either<Failure, String>> call([ResetPasswordParams? param]) async {
+  ResultFuture<String> call([ResetPasswordParams? param]) async {
     if (param == null) {
       return Left(InvalidParamsFailure("Invalid params failure"));
     }
