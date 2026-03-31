@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
 import 'package:quent/features/auth/passwords/presentation/pages/new_passwrod_page.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/cubit/otp_cubit/otp_cubit.dart';
 import '../../../../../../generated/assets.gen.dart';
@@ -41,7 +42,7 @@ class _VerifyResetPasswordCodePageBodyState
                 ),
                 const Spacer(),
                 Text(
-                  'Enter verification code',
+                  S.of(context).enter_verification_code_for_rest_password,
                   textAlign: TextAlign.center,
                   style: AppStyles.semibold30(
                     context,
@@ -49,7 +50,7 @@ class _VerifyResetPasswordCodePageBodyState
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'We have sent a code to your phone',
+                  S.of(context).we_have_sent_code_to_your_phone,
                   style: AppStyles.regular14(
                     context,
                   ).copyWith(color: const Color(0xFF7F7F7F)),
@@ -58,7 +59,7 @@ class _VerifyResetPasswordCodePageBodyState
                 const OtpForm(),
                 const SizedBox(height: 24),
                 CustomButton(
-                  text: "Continue",
+                  text: S.of(context).reset_password_button,
                   onPressed: () {
                     final cubit = context.read<ResetPasswordCubit>();
                     final userCode = context.read<OtpCubit>().code;

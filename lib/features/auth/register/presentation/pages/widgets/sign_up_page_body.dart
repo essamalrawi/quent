@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/features/auth/register/presentation/manager/cubits/show_national_id_and_date_of_birth/show_national_id_and_date_of_birth_cubit.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/buttons/social_login_button.dart';
 import '../../../../../../core/components/forms/password_field.dart';
@@ -84,6 +85,7 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
                   ),
                   const SizedBox(height: 18),
                   PasswordField(
+                    hintText: S.of(context).login_password_hint,
                     onSaved: (value) {
                       password = value!;
                     },

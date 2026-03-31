@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../register/presentation/pages/sign_up_page.dart';
 
 class DontHaveAccount extends StatelessWidget {
@@ -15,7 +16,7 @@ class DontHaveAccount extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: "Don't have an account?",
+                text: S.of(context).dont_have_an_account,
                 style: AppStyles.regular14(
                   context,
                 ).copyWith(color: const Color(0xFF7F7F7F)),

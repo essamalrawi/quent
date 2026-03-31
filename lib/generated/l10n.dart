@@ -54,11 +54,21 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Welcome to Quent`
+  /// `Welcome to\nQuent`
   String get onboarding_title_1 {
     return Intl.message(
-      'Welcome to Quent',
+      'Welcome to\nQuent',
       name: 'onboarding_title_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get onboarding_button_title {
+    return Intl.message(
+      'Get Started',
+      name: 'onboarding_button_title',
       desc: '',
       args: [],
     );
@@ -79,16 +89,6 @@ class S {
     return Intl.message(
       'Discover your next adventure with Qent. we’re here to provide you with a seamless car rental experience. Let’s get started on your journey.',
       name: 'onboarding_desc_2',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Get Started`
-  String get onboarding_button_title {
-    return Intl.message(
-      'Get Started',
-      name: 'onboarding_button_title',
       desc: '',
       args: [],
     );
@@ -165,13 +165,8 @@ class S {
   }
 
   /// `Apple Pay`
-  String get applle_sign_in {
-    return Intl.message(
-      'Apple Pay',
-      name: 'applle_sign_in',
-      desc: '',
-      args: [],
-    );
+  String get apple_sign_in {
+    return Intl.message('Apple Pay', name: 'apple_sign_in', desc: '', args: []);
   }
 
   /// `Google Pay`
@@ -184,11 +179,24 @@ class S {
     );
   }
 
-  // skipped getter for the 'dont_have_an_account?' key
+  /// `Don't have an account?`
+  String get dont_have_an_account {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dont_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Sign Up.`
-  String get sign_up {
-    return Intl.message('Sign Up.', name: 'sign_up', desc: '', args: []);
+  String get login_sign_up_button {
+    return Intl.message(
+      'Sign Up.',
+      name: 'login_sign_up_button',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Reset your password`
@@ -201,10 +209,10 @@ class S {
     );
   }
 
-  /// `Enter the email address associated with your account and we\'ll send you a link to reset your password.`
+  /// `Enter the email address associated with your account and we'll send you a link to reset your password.`
   String get reset_password_desc {
     return Intl.message(
-      'Enter the email address associated with your account and we\\\'ll send you a link to reset your password.',
+      'Enter the email address associated with your account and we\'ll send you a link to reset your password.',
       name: 'reset_password_desc',
       desc: '',
       args: [],
@@ -231,13 +239,45 @@ class S {
     );
   }
 
-  // skipped getter for the 'return to_login' key
+  /// `Return to sign in`
+  String get return_to_login {
+    return Intl.message(
+      'Return to sign in',
+      name: 'return_to_login',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'create account_title' key
+  /// `Create a`
+  String get create_account_title {
+    return Intl.message(
+      'Create a',
+      name: 'create_account_title',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'create account_title_bold' key
+  /// `New account`
+  String get create_account_title_bold {
+    return Intl.message(
+      'New account',
+      name: 'create_account_title_bold',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'enter_verification_code for_rest_password' key
+  /// `Enter verification code`
+  String get enter_verification_code_for_rest_password {
+    return Intl.message(
+      'Enter verification code',
+      name: 'enter_verification_code_for_rest_password',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `We have sent a code to your phone`
   String get we_have_sent_code_to_your_phone {
@@ -289,25 +329,327 @@ class S {
     );
   }
 
-  /// `Please fill in the required field before submitting.`
-  String
-  get verification_code_error_alert_title_when_code_entered_is_incorrect_title {
+  /// `Input Required`
+  String get verification_code_error_alert_title_incorrect_code {
     return Intl.message(
-      'Please fill in the required field before submitting.',
-      name:
-          'verification_code_error_alert_title_when_code_entered_is_incorrect_title',
+      'Input Required',
+      name: 'verification_code_error_alert_title_incorrect_code',
       desc: '',
       args: [],
     );
   }
 
   /// `Please fill in the required field before submitting.`
-  String
-  get verification_code_error_alert_title_when_code_entered_is_incorrect_disc {
+  String get verification_code_error_alert_disc_incorrect_code {
     return Intl.message(
       'Please fill in the required field before submitting.',
-      name:
-          'verification_code_error_alert_title_when_code_entered_is_incorrect_disc',
+      name: 'verification_code_error_alert_disc_incorrect_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input Required`
+  String get verification_code_error_alert_title_input_required {
+    return Intl.message(
+      'Input Required',
+      name: 'verification_code_error_alert_title_input_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in the required field before submitting.`
+  String get verification_code_error_alert_disc_input_required {
+    return Intl.message(
+      'Please fill in the required field before submitting.',
+      name: 'verification_code_error_alert_disc_input_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get verification_code_error_alert_title_server_failure {
+    return Intl.message(
+      'Error',
+      name: 'verification_code_error_alert_title_server_failure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter new password`
+  String get enter_new_password {
+    return Intl.message(
+      'Enter new password',
+      name: 'enter_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please make sure both passwords match`
+  String get enter_new_password_desc {
+    return Intl.message(
+      'Please make sure both passwords match',
+      name: 'enter_new_password_desc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get new_password_hint {
+    return Intl.message(
+      'Password',
+      name: 'new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm password`
+  String get confirm_new_password_hint {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirm_new_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get new_password_button_title {
+    return Intl.message(
+      'Continue',
+      name: 'new_password_button_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed`
+  String get password_change_success_alert_title {
+    return Intl.message(
+      'Password changed',
+      name: 'password_change_success_alert_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been changed successfully.`
+  String get password_change_success_alert_disc {
+    return Intl.message(
+      'Your password has been changed successfully.',
+      name: 'password_change_success_alert_disc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get sign_up_title {
+    return Intl.message('Sign Up', name: 'sign_up_title', desc: '', args: []);
+  }
+
+  /// `Full Name`
+  String get sign_up_full_name_hint {
+    return Intl.message(
+      'Full Name',
+      name: 'sign_up_full_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get sign_up_email_hint {
+    return Intl.message(
+      'Email Address',
+      name: 'sign_up_email_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get sign_up_phone_hint {
+    return Intl.message(
+      'Phone Number',
+      name: 'sign_up_phone_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get sign_up_password_hint {
+    return Intl.message(
+      'Password',
+      name: 'sign_up_password_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get sign_up_country_hint {
+    return Intl.message(
+      'Country',
+      name: 'sign_up_country_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get sign_up_location_hint {
+    return Intl.message(
+      'Location',
+      name: 'sign_up_location_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'available_to_creat_a_car?' key
+
+  /// `Yes`
+  String get yes {
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message('No', name: 'no', desc: '', args: []);
+  }
+
+  /// `National ID`
+  String get national_id_hint {
+    return Intl.message(
+      'National ID',
+      name: 'national_id_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date of Birth`
+  String get date_of_birth_hint {
+    return Intl.message(
+      'Date of Birth',
+      name: 'date_of_birth_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get sign_up_button {
+    return Intl.message('Sign Up', name: 'sign_up_button', desc: '', args: []);
+  }
+
+  /// `Login`
+  String get login_button {
+    return Intl.message('Login', name: 'login_button', desc: '', args: []);
+  }
+
+  /// `Apple Pay`
+  String get sign_up_with_apple {
+    return Intl.message(
+      'Apple Pay',
+      name: 'sign_up_with_apple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google Pay`
+  String get sign_up_with_google {
+    return Intl.message(
+      'Google Pay',
+      name: 'sign_up_with_google',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'already_have_an_account?' key
+
+  /// `Sign In.`
+  String get sign_up_login_button {
+    return Intl.message(
+      'Sign In.',
+      name: 'sign_up_login_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Verify your phone number`
+  String get verify_your_phone_number {
+    return Intl.message(
+      'Verify your phone number',
+      name: 'verify_your_phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'we_have_sent_code_you_an_sms_with a code to number' key
+
+  /// `Country`
+  String get verify_phone_number_country_code_hint {
+    return Intl.message(
+      'Country',
+      name: 'verify_phone_number_country_code_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get verify_phone_number_phone_number_hint {
+    return Intl.message(
+      'Phone Number',
+      name: 'verify_phone_number_phone_number_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get verify_phone_number_button_title {
+    return Intl.message(
+      'Continue',
+      name: 'verify_phone_number_button_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Someething went wrong`
+  String get verify_phone_number_error_alert_title {
+    return Intl.message(
+      'Someething went wrong',
+      name: 'verify_phone_number_error_alert_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have sent a code to: `
+  String get we_have_sent_code_to {
+    return Intl.message(
+      'We have sent a code to: ',
+      name: 'we_have_sent_code_to',
       desc: '',
       args: [],
     );

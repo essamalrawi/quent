@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../generated/assets.gen.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
@@ -46,7 +47,7 @@ class _RequestResetPasswordPageBodyState
                 children: [
                   const Spacer(flex: 5),
                   Text(
-                    'Reset your password',
+                    S.of(context).reset_your_password,
                     textAlign: TextAlign.center,
                     style: AppStyles.semibold30(
                       context,
@@ -56,7 +57,7 @@ class _RequestResetPasswordPageBodyState
 
                   Text(
                     textAlign: TextAlign.center,
-                    'Enter the email address associated with your account and we\'ll send you a link to reset your password.',
+                    S.of(context).reset_password_desc,
                     style: AppStyles.regular14(
                       context,
                     ).copyWith(color: const Color(0xFF7F7F7F)),
@@ -68,7 +69,7 @@ class _RequestResetPasswordPageBodyState
                     onSaved: (value) {
                       email = value!;
                     },
-                    hintText: "Email",
+                    hintText: S.of(context).reset_password_email_hint,
                     textInputType: TextInputType.emailAddress,
                     obscureText: false,
                   ),
@@ -86,7 +87,7 @@ class _RequestResetPasswordPageBodyState
                         });
                       }
                     },
-                    text: "Continue",
+                    text: S.of(context).reset_password_button_title,
                   ),
                   const SizedBox(height: 28),
                   GestureDetector(
@@ -94,7 +95,7 @@ class _RequestResetPasswordPageBodyState
                       Navigator.pop(context);
                     },
                     child: Text(
-                      'Return to sing in',
+                      S.of(context).return_to_login,
                       textAlign: TextAlign.center,
                       style: AppStyles.regular14(context).copyWith(
                         letterSpacing: -0.14,
@@ -108,7 +109,7 @@ class _RequestResetPasswordPageBodyState
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Create a',
+                          text: S.of(context).create_account_title,
                           style: AppStyles.regular14(context).copyWith(
                             letterSpacing: -0.14,
                             color: const Color(0xFF7F7F7F),
@@ -123,7 +124,7 @@ class _RequestResetPasswordPageBodyState
                                 SignUpPage.routeName,
                               );
                             },
-                          text: 'New account ',
+                          text: S.of(context).create_account_title_bold,
                           style: AppStyles.regular14(context).copyWith(
                             letterSpacing: -0.14,
                             color: const Color(0xFF454545),

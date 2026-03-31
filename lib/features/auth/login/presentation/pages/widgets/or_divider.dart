@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/generated/l10n.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
@@ -11,7 +12,7 @@ class OrDivider extends StatelessWidget {
         const Expanded(child: Divider(color: Color(0xFFD9D9D9))),
         const SizedBox(width: 20),
         Text(
-          "Or",
+          S.of(context).or_continue_with,
           textAlign: TextAlign.center,
           style: AppStyles.regular14(
             context,

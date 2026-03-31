@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/features/auth/login/presentation/manager/cubits/sign_in/sign_in_cubit.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/buttons/social_login_button.dart';
 import '../../../../../../core/components/forms/custom_text_form_field.dart';
@@ -42,13 +43,13 @@ class _SignInPageBodyState extends State<SignInPageBody> {
                   SvgPicture.asset(Assets.images.icon.authViewLogo),
                   const SizedBox(height: 50),
                   Text(
-                    'Welcome Back\nReady to hit the road.',
+                    S.of(context).login_title,
                     style: AppStyles.semibold30(context),
                   ),
                   const SizedBox(height: 40),
                   CustomTextFormField(
                     obscureText: false,
-                    hintText: 'Email/Phone Number',
+                    hintText: S.of(context).login_email_phone_hint,
                     textInputType: TextInputType.emailAddress,
                     onSaved: (value) {
                       email = value!;
@@ -56,6 +57,7 @@ class _SignInPageBodyState extends State<SignInPageBody> {
                   ),
                   const SizedBox(height: 18),
                   PasswordField(
+                    hintText: S.of(context).login_password_hint,
                     onSaved: (value) {
                       password = value!;
                     },
@@ -64,7 +66,7 @@ class _SignInPageBodyState extends State<SignInPageBody> {
                   const ForgotPassword(),
                   const SizedBox(height: 28),
                   CustomButton(
-                    text: "Login",
+                    text: S.of(context).login_button_title,
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
@@ -86,18 +88,18 @@ class _SignInPageBodyState extends State<SignInPageBody> {
                     },
                     fontColor: const Color(0xFF21292B),
                     backgroundColor: const Color(0xFFEDEDED),
-                    text: "Sign up",
+                    text: S.of(context).sign_up_button_title,
                   ),
                   const SizedBox(height: 28),
                   const OrDivider(),
                   const SizedBox(height: 28),
                   SocialLoginButton(
-                    text: "Apple pay",
+                    text: S.of(context).apple_sign_in,
                     imagePath: Assets.images.icon.appleLogo,
                   ),
                   const SizedBox(height: 18),
                   SocialLoginButton(
-                    text: "Google pay",
+                    text: S.of(context).google_sign_in,
                     imagePath: Assets.images.icon.googleLogo,
                   ),
                   const SizedBox(height: 57),

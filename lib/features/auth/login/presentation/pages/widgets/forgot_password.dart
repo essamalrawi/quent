@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/generated/l10n.dart';
 
 import '../../../../passwords/presentation/pages/request_reset_password_page.dart';
 import 'custom_check_box.dart';
@@ -28,7 +29,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         ),
         const SizedBox(width: 10),
         Text(
-          'Remember Me',
+          S.of(context).remember_me,
 
           style: AppStyles.regular14(
             context,
@@ -40,7 +41,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Navigator.pushNamed(context, ResetYourPasswordPage.routeName);
           },
           child: Text(
-            'Forgot Password',
+            S.of(context).forgot_password,
             style: AppStyles.regular14(
               context,
             ).copyWith(color: const Color(0xFF454545), letterSpacing: -0.14),

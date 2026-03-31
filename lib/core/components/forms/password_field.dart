@@ -4,7 +4,7 @@ import '../../../generated/assets.gen.dart';
 import 'custom_text_form_field.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({super.key, this.onSaved, this.hintText = "Password"});
+  const PasswordField({super.key, this.onSaved, this.hintText});
 
   final void Function(String?)? onSaved;
   final String? hintText;

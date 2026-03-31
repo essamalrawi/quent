@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../generated/assets.gen.dart';
 import '../../../../auth/login/presentation/pages/sign_in_page.dart';
@@ -81,7 +82,7 @@ class _OnBoardingPageBodyState extends State<OnBoardingPageBody> {
                 left: 18,
                 bottom: 55,
                 child: CustomButton(
-                  text: "Get Started",
+                  text: S.of(context).onboarding_button_title,
                   onPressed: () {
                     // Prefs.setBool(kIsOnBoardingViewSeen, true);
                     Navigator.pushReplacementNamed(
