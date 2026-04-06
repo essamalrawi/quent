@@ -309,10 +309,10 @@ class S {
     );
   }
 
-  /// `Your code is: `
+  /// `Your code is:`
   String get verification_code_success_alert_disc {
     return Intl.message(
-      'Your code is: ',
+      'Your code is:',
       name: 'verification_code_success_alert_disc',
       desc: '',
       args: [],
@@ -329,20 +329,20 @@ class S {
     );
   }
 
-  /// `Input Required`
+  /// `Error`
   String get verification_code_error_alert_title_incorrect_code {
     return Intl.message(
-      'Input Required',
+      'Error',
       name: 'verification_code_error_alert_title_incorrect_code',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please fill in the required field before submitting.`
+  /// `The code you entered is incorrect. Please try again.`
   String get verification_code_error_alert_disc_incorrect_code {
     return Intl.message(
-      'Please fill in the required field before submitting.',
+      'The code you entered is incorrect. Please try again.',
       name: 'verification_code_error_alert_disc_incorrect_code',
       desc: '',
       args: [],

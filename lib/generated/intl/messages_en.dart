@@ -109,20 +109,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "verification_code_error_alert_disc_incorrect_code":
         MessageLookupByLibrary.simpleMessage(
-          "Please fill in the required field before submitting.",
+          "The code you entered is incorrect. Please try again.",
         ),
     "verification_code_error_alert_disc_input_required":
         MessageLookupByLibrary.simpleMessage(
           "Please fill in the required field before submitting.",
         ),
     "verification_code_error_alert_title_incorrect_code":
-        MessageLookupByLibrary.simpleMessage("Input Required"),
+        MessageLookupByLibrary.simpleMessage("Error"),
     "verification_code_error_alert_title_input_required":
         MessageLookupByLibrary.simpleMessage("Input Required"),
     "verification_code_error_alert_title_server_failure":
         MessageLookupByLibrary.simpleMessage("Error"),
     "verification_code_success_alert_disc":
-        MessageLookupByLibrary.simpleMessage("Your code is: "),
+        MessageLookupByLibrary.simpleMessage("Your code is:"),
     "verification_code_success_alert_disc_2":
         MessageLookupByLibrary.simpleMessage(
           "Please use it within 10 seconds.",

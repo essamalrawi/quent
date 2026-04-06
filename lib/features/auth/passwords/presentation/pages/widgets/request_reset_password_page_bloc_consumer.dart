@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:quent/features/auth/passwords/presentation/pages/widgets/request_reset_password_page_body.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../manager/cubits/reset_password/reset_password_cubit.dart';
 import '../verify_reset_password_code_page.dart';
 
@@ -28,9 +29,9 @@ class RequestResetPasswordPageBlocConsumer extends StatelessWidget {
           );
 
           Flushbar(
-            title: "Verification Code",
+            title: S.of(context).verification_code_success_alert_title,
             message:
-                "Your code is: ${state.forgotPasswordEntity.code}. Please use it within 10 seconds.",
+                "${S.of(context).verification_code_success_alert_disc} ${state.forgotPasswordEntity.code}. ${S.of(context).verification_code_success_alert_disc_2}",
             duration: const Duration(seconds: 10),
             backgroundColor: const Color.fromARGB(255, 4, 192, 89),
             icon: const Icon(Icons.check_circle, color: Colors.white),
@@ -42,7 +43,9 @@ class RequestResetPasswordPageBlocConsumer extends StatelessWidget {
           context.read<ResetPasswordCubit>().code = "";
 
           Flushbar(
-            title: "Error",
+            title: S
+                .of(context)
+                .verification_code_error_alert_title_server_failure,
             message: state.errorMessage,
             duration: const Duration(seconds: 3),
             backgroundColor: Colors.redAccent,

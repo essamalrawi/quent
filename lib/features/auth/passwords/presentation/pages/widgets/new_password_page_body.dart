@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/generated/l10n.dart';
 import '../../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../../core/components/forms/password_field.dart';
 import '../../../../../../generated/assets.gen.dart';
@@ -40,7 +41,7 @@ class _NewPasswordPageBodyState extends State<NewPasswordPageBody> {
                   ),
                   const Spacer(),
                   Text(
-                    'Enter new password',
+                    S.of(context).enter_new_password,
                     textAlign: TextAlign.center,
                     style: AppStyles.semibold30(
                       context,
@@ -48,13 +49,14 @@ class _NewPasswordPageBodyState extends State<NewPasswordPageBody> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Please make sure both passwords match',
+                    S.of(context).enter_new_password_desc,
                     style: AppStyles.regular14(
                       context,
                     ).copyWith(color: const Color(0xFF7F7F7F)),
                   ),
                   const SizedBox(height: 40),
                   PasswordField(
+                    hintText: S.of(context).new_password_hint,
                     onSaved: (value) {
                       password = value!;
                     },
@@ -64,11 +66,11 @@ class _NewPasswordPageBodyState extends State<NewPasswordPageBody> {
                     onSaved: (value) {
                       confirmPassword = value!;
                     },
-                    hintText: "Confirm password",
+                    hintText: S.of(context).confirm_new_password_hint,
                   ),
                   const SizedBox(height: 24),
                   CustomButton(
-                    text: "Continue",
+                    text: S.of(context).new_password_button_title,
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();

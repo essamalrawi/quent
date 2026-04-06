@@ -73,9 +73,12 @@ class _VerifyResetPasswordCodePageBodyState
                     } else if (!(correctCode == userCode)) {
                       if (userCode.length > 3) {
                         Flushbar(
-                          title: "Error",
-                          message:
-                              "The code you entered is incorrect. Please try again.",
+                          title: S
+                              .of(context)
+                              .verification_code_error_alert_title_incorrect_code,
+                          message: S
+                              .of(context)
+                              .verification_code_error_alert_disc_incorrect_code,
                           duration: const Duration(seconds: 3),
                           backgroundColor: const Color.fromARGB(255, 255, 0, 0),
                           icon: const Icon(Icons.error, color: Colors.white),
@@ -83,9 +86,12 @@ class _VerifyResetPasswordCodePageBodyState
                         ).show(context);
                       } else {
                         Flushbar(
-                          title: "Input Required",
-                          message:
-                              "Please fill in the required field before submitting.",
+                          title: S
+                              .of(context)
+                              .verification_code_error_alert_title_input_required,
+                          message: S
+                              .of(context)
+                              .verification_code_error_alert_disc_input_required,
                           duration: const Duration(seconds: 10),
                           backgroundColor: const Color.fromARGB(
                             255,
