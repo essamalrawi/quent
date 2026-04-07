@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
-import 'package:quent/features/on_boarding/presentation/pages/on_boarding_page.dart';
+import 'package:quent/features/main/startup/presentation/startup_page.dart';
 import 'package:quent/generated/l10n.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/get_it_service.dart';
@@ -42,7 +42,7 @@ class QuentApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xffF8F8F8)),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: OnBoardingPage.routeName,
+      initialRoute: StartupPage.routeName,
     );
   }
 }

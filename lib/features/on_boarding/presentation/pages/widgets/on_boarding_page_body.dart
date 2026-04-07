@@ -1,5 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:quent/core/constants/prefs_keys.dart';
+import 'package:quent/core/services/shared_preferences_singleton.dart';
 import 'package:quent/generated/l10n.dart';
 import '../../../../../core/components/buttons/custom_button.dart';
 import '../../../../../generated/assets.gen.dart';
@@ -84,10 +86,10 @@ class _OnBoardingPageBodyState extends State<OnBoardingPageBody> {
                 child: CustomButton(
                   text: S.of(context).onboarding_button_title,
                   onPressed: () {
-                    // Prefs.setBool(kIsOnBoardingViewSeen, true);
+                    Prefs.setBool(kIsOnBoardingPageSeen, true);
                     Navigator.pushReplacementNamed(
                       context,
-                      SignInView.routeName,
+                      SignInPage.routeName,
                     );
                   },
                 ),

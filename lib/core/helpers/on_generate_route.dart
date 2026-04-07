@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quent/features/main/main/presentation/main_page.dart';
 import 'package:quent/features/main/search/presentation/search_page.dart';
+import 'package:quent/features/main/startup/presentation/startup_page.dart';
 import '../../features/auth/login/presentation/pages/sign_in_page.dart';
 import '../../features/auth/passwords/presentation/manager/cubits/reset_password/reset_password_cubit.dart';
 import '../../features/auth/passwords/presentation/pages/new_passwrod_page.dart';
@@ -19,12 +20,14 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case MainPage.routeName:
       return CupertinoPageRoute(builder: (context) => MainPage());
+    case StartupPage.routeName:
+      return CupertinoPageRoute(builder: (context) => StartupPage());
     case OnBoardingPage.routeName:
       return CupertinoPageRoute(builder: (context) => OnBoardingPage());
     case SignUpPage.routeName:
       return CupertinoPageRoute(builder: (context) => SignUpPage());
-    case SignInView.routeName:
-      return CupertinoPageRoute(builder: (context) => SignInView());
+    case SignInPage.routeName:
+      return CupertinoPageRoute(builder: (context) => SignInPage());
     case ResetYourPasswordPage.routeName:
       return MaterialPageRoute(builder: (_) => const ResetYourPasswordPage());
     case NewPasswordPage.routeName:

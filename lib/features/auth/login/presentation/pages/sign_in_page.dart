@@ -5,8 +5,8 @@ import 'package:quent/features/auth/login/presentation/pages/widgets/sign_in_pag
 import '../../../../../core/services/get_it_service.dart';
 import '../manager/cubits/sign_in/sign_in_cubit.dart';
 
-class SignInView extends StatelessWidget {
-  const SignInView({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
 
   static const routeName = "sign-in-view";
 

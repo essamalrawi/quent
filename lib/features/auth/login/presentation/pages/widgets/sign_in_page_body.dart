@@ -23,6 +23,7 @@ class SignInPageBody extends StatefulWidget {
 
 class _SignInPageBodyState extends State<SignInPageBody> {
   final _formKey = GlobalKey<FormState>();
+  bool rememberMe = false;
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   late String email, password;

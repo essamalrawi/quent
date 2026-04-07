@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quent/core/constants/prefs_keys.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/core/services/shared_preferences_singleton.dart';
 import 'package:quent/generated/l10n.dart';
 
 import '../../../../passwords/presentation/pages/request_reset_password_page.dart';
@@ -23,7 +25,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           isChecked: isTermsAccepted,
           onChecked: (value) {
             isTermsAccepted = value;
-            // Prefs.setBool(kRememberMe, value);
+            Prefs.setBool(kRememberMe, value);
             setState(() {});
           },
         ),

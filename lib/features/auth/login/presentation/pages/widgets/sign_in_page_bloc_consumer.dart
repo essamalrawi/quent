@@ -2,6 +2,9 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:quent/core/constants/auth_cached_keys.dart';
+import 'package:quent/core/constants/prefs_keys.dart';
+import 'package:quent/core/services/shared_preferences_singleton.dart';
 import 'package:quent/features/auth/login/presentation/manager/cubits/sign_in/sign_in_cubit.dart';
 import 'package:quent/features/auth/login/presentation/pages/widgets/sign_in_page_body.dart';
 
@@ -15,6 +18,10 @@ class SignInPageBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
+          if (Prefs.getBool(kRememberMe)) {
+            Prefs.setString(kAccessToken, state.user.token.access);
+            Prefs.setString(kRefreshToken, state.user.token.refresh);
+          }
           Navigator.pushReplacementNamed(context, HomePage.routeName);
         }
 

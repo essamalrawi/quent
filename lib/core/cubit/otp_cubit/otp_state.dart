@@ -1,9 +1,7 @@
 part of 'otp_cubit.dart';
 
 @immutable
-sealed class OtpState extends Equatable {
-  List<Object?> get props => [];
-}
+sealed class OtpState {}
 
 final class OtpInitial extends OtpState {}
 
