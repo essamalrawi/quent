@@ -17,4 +17,5 @@ class Endpoints {
   static const String getReviewsreviews = "reviews";
   static const String getBestCars = "/cars/best";
   static const String getNearestCars = "/cars/nearest";
+  static const String searchCars = "/cars/search";
 }
