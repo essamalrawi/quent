@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-
 import 'package:meta/meta.dart';
-import 'package:quent/features/main/home/domain/entities/brand_entity.dart';
+import 'package:quent/features/main/home/data/domain/entities/brand_entity.dart';
 
 part 'brands_state.dart';
 

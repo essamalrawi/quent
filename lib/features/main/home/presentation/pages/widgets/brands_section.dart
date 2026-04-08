@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
-import 'package:quent/features/main/home/domain/entities/brand_entity.dart';
+import 'package:quent/features/main/home/data/domain/entities/brand_entity.dart';
 import 'package:quent/features/main/home/presentation/pages/widgets/brand_widget.dart';
 
 class BrandsSection extends StatelessWidget {

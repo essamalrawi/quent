@@ -1,9 +1,16 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
+import 'package:quent/core/utils/api_service.dart';
+import 'package:quent/features/main/home/data/data_sources/home_remote_data_source.dart';
 import 'package:quent/features/main/startup/presentation/startup_page.dart';
+import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
+import 'package:quent/features/shared_features/data/domain/entities/reviews_entity.dart';
 import 'package:quent/generated/l10n.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/get_it_service.dart';
@@ -21,6 +28,10 @@ void main() async {
   Bloc.observer = CustomBlocObserver();
   await Prefs.init();
   setupGetIt();
+
+  HomeRemoteDataSourceImpl k = HomeRemoteDataSourceImpl(ApiService(Dio()));
+  List<CarEntity> data = await k.getNearestCars();
+  log(data[0].name);
 
   runApp(const QuentApp());
 }
