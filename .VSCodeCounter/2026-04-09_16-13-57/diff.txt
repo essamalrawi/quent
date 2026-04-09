@@ -1,0 +1,47 @@
+Date : 2026-04-09 16:13:57
+Directory : /home/essam/Dev/quent/lib
+Total : 9 files,  229 codes, 0 comments, 46 blanks, all 275 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |          9 |        229 |          0 |         46 |        275 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                              | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                 |          9 |        229 |          0 |         46 |        275 |
+| features                                                                                          |          9 |        229 |          0 |         46 |        275 |
+| features/main                                                                                     |          9 |        229 |          0 |         46 |        275 |
+| features/main/home                                                                                |          7 |        173 |          0 |         39 |        212 |
+| features/main/home/data                                                                           |          7 |        173 |          0 |         39 |        212 |
+| features/main/home/data/data_sources                                                              |          1 |         91 |          0 |         15 |        106 |
+| features/main/home/data/data_sources/repos                                                        |          1 |         91 |          0 |         15 |        106 |
+| features/main/home/data/domain                                                                    |          6 |         82 |          0 |         24 |        106 |
+| features/main/home/data/domain/use_cases                                                          |          6 |         82 |          0 |         24 |        106 |
+| features/main/search                                                                              |          2 |         56 |          0 |          7 |         63 |
+| features/main/search/data                                                                         |          2 |         56 |          0 |          7 |         63 |
+| features/main/search/data/data_sources                                                            |          1 |         42 |          0 |          5 |         47 |
+| features/main/search/data/data_sources/repos                                                      |          1 |         42 |          0 |          5 |         47 |
+| features/main/search/data/domain                                                                  |          1 |         14 |          0 |          2 |         16 |
+| features/main/search/data/domain/repos                                                            |          1 |         14 |          0 |          2 |         16 |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                          | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/essam/Dev/quent/lib/features/main/home/data/data_sources/repos/home_repo_impl.dart          | Dart     |         91 |          0 |         15 |        106 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_all_brands_use_case.dart   | Dart     |         12 |          0 |          4 |         16 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_all_cars_use_case.dart     | Dart     |         12 |          0 |          4 |         16 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_best_car_use_case.dart     | Dart     |         12 |          0 |          4 |         16 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_car_review_use_case.dart   | Dart     |         17 |          0 |          4 |         21 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_nearest_cars_use_case.dart | Dart     |         12 |          0 |          4 |         16 |
+| /home/essam/Dev/quent/lib/features/main/home/data/domain/use_cases/get_one_car_use_case.dart      | Dart     |         17 |          0 |          4 |         21 |
+| /home/essam/Dev/quent/lib/features/main/search/data/data_sources/repos/search_repo_impl.dart      | Dart     |         42 |          0 |          5 |         47 |
+| /home/essam/Dev/quent/lib/features/main/search/data/domain/repos/search_repo.dart                 | Dart     |         14 |          0 |          2 |         16 |
+| Total                                                                                             |          |        229 |          0 |         46 |        275 |
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
