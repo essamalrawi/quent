@@ -23,7 +23,7 @@ class RegisterRepoImpl extends RegisterRepo {
       return right(countries);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -38,7 +38,7 @@ class RegisterRepoImpl extends RegisterRepo {
       return right(locations);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -73,7 +73,7 @@ class RegisterRepoImpl extends RegisterRepo {
       return right(user);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -89,7 +89,7 @@ class RegisterRepoImpl extends RegisterRepo {
       return right(result);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -110,7 +110,7 @@ class RegisterRepoImpl extends RegisterRepo {
       return right(null);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }

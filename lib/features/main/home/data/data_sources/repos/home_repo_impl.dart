@@ -22,7 +22,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(brands);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -37,7 +37,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(cars);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -52,7 +52,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(cars);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -67,7 +67,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(reviews);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -82,7 +82,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(cars);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
@@ -97,7 +97,7 @@ class HomeRepoImpl extends HomeRepo {
       return right(car);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
