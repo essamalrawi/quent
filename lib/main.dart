@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
 import 'package:quent/core/utils/api_service.dart';
-import 'package:quent/features/main/home/data/data_sources/home_remote_data_source.dart';
 import 'package:quent/features/main/search/data/data_sources/search_remote_data_source.dart';
 import 'package:quent/features/main/startup/presentation/startup_page.dart';
 import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
