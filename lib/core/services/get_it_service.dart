@@ -15,6 +15,9 @@ import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_reg
 import 'package:quent/features/auth/register/domain/use_cases/fetch_featured_register_locations_use_case.dart';
 import 'package:quent/features/auth/register/domain/use_cases/request_verify_code_use_case.dart';
 import 'package:quent/features/auth/register/domain/use_cases/sign_up_use_case.dart';
+import 'package:quent/features/main/home/data/data_sources/home_remote_data_source.dart';
+import 'package:quent/features/main/home/data/data_sources/repos/home_repo_impl.dart';
+import 'package:quent/features/main/home/data/domain/repos/home_repo.dart';
 
 final getIt = GetIt.instance;
 
@@ -69,5 +72,15 @@ void setupGetIt() {
   );
   getIt.registerSingleton<ResetPasswordUseCase>(
     ResetPasswordUseCase(passwordRepo: getIt.get<PasswordRepoImpl>()),
+  );
+
+  // Home featured
+  getIt.registerSingleton<HomeRemoteDataSourceImpl>(
+    HomeRemoteDataSourceImpl(getIt.get<ApiService>()),
+  );
+  getIt.registerSingleton<HomeRepoImpl>(
+    HomeRepoImpl(
+      homeRemoteDataSourceImpl: getIt.get<HomeRemoteDataSourceImpl>(),
+    ),
   );
 }
