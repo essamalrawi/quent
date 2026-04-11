@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
 
 class NearbyCar extends StatelessWidget {
@@ -36,12 +37,18 @@ class NearbyCar extends StatelessWidget {
                   //   arguments: car.id,
                   // );
                 },
-                child: CachedNetworkImage(
-                  imageUrl: car.images[1].image,
-                  placeholder: (context, url) =>
-                      const Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                child: SvgPicture.network(
+                  car.images[1].image,
+                  placeholderBuilder: (context) =>
+                      Center(child: const CircularProgressIndicator()),
                 ),
+
+                // CachedNetworkImage(
+                //   imageUrl: car.images[1].image,
+                //   placeholder: (context, url) =>
+                //       const Center(child: CircularProgressIndicator()),
+                //   errorWidget: (context, url, error) => const Icon(Icons.error),
+                // ),
               ),
             ),
           ),

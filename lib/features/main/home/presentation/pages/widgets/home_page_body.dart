@@ -48,7 +48,10 @@ class HomePageBody extends StatelessWidget {
               BlocBuilder<BrandsCubit, BrandsState>(
                 builder: (context, state) {
                   if (state is BrandsSuccess) {
-                    return BrandsSection(brands: state.brands);
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: BrandsSection(brands: state.brands),
+                    );
                   } else {
                     return const Text("Still loading");
                   }

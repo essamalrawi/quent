@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,6 +19,8 @@ class _BestCarItemState extends State<BestCarItem> {
 
   @override
   Widget build(BuildContext context) {
+    log(widget.car.images.first.image);
+
     return AspectRatio(
       aspectRatio: 200 / 269,
       child: Container(
@@ -34,13 +38,29 @@ class _BestCarItemState extends State<BestCarItem> {
                 SizedBox(
                   height: 124,
 
-                  child: CachedNetworkImage(
-                    imageUrl: widget.car.images.first.image,
-                    placeholder: (context, url) =>
-                        const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                  child: SvgPicture.network(
+                    widget.car.images.first.image,
+                    width: 200,
+                    height: 200,
+                    colorFilter: const ColorFilter.mode(
+                      Colors.red,
+                      BlendMode.srcIn,
+                    ),
                   ),
+
+                  // child: SvgPicture.network(
+                  //   widget.car.images.first.image,
+                  //   placeholderBuilder: (context) =>
+                  //       Center(child: const CircularProgressIndicator()),
+                  // ),
+
+                  //  CachedNetworkImage(
+                  //   imageUrl: widget.car.images.first.image,
+                  //   placeholder: (context, url) =>
+                  //       const Center(child: CircularProgressIndicator()),
+                  //   errorWidget: (context, url, error) =>
+                  //       const Icon(Icons.error),
+                  // ),
                 ),
 
                 Positioned(
@@ -147,7 +167,6 @@ class _BestCarItemState extends State<BestCarItem> {
 
                         Row(
                           children: [
-                            SvgPicture.asset(Assets.images.icon.priceRange),
                             const SizedBox(width: 5),
                             Text(
                               "\$${widget.car.price?.toString().substring(0, 3) ?? '0.00'}/Day",
