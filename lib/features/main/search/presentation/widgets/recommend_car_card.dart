@@ -28,7 +28,13 @@ class _RecommendCarCardState extends State<RecommendCarCard> {
           Stack(
             children: [
               SizedBox(
-                child: Image.asset(Assets.images.testCar.path),
+                child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Image.asset(
+                    Assets.images.testCar.path,
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 // child: CachedNetworkImage(
                 //   imageUrl: widget.car.images.first.image,
                 //   placeholder: (context, url) =>
