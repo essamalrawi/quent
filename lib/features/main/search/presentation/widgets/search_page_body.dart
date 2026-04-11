@@ -3,6 +3,8 @@ import 'package:quent/features/main/home/presentation/pages/widgets/custom_searc
 import 'package:quent/features/main/home/presentation/pages/widgets/filter_search_widget.dart';
 import 'package:quent/features/main/search/presentation/widgets/car_brand_selector.dart';
 import 'package:quent/features/main/search/presentation/widgets/custom_search_view_app_bar.dart';
+import 'package:quent/features/main/search/presentation/widgets/popular_car_container.dart';
+import 'package:quent/features/main/search/presentation/widgets/recommend_car_card.dart';
 import 'package:quent/features/main/search/presentation/widgets/section_header_row.dart';
 import 'package:quent/generated/assets.gen.dart';
 
@@ -84,42 +86,42 @@ class SearchPageBody extends StatelessWidget {
             ),
           ),
 
-          // SliverGrid(
-          //   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          //     maxCrossAxisExtent: 200.0,
-          //     mainAxisSpacing: 10.0,
-          //     crossAxisSpacing: 10.0,
-          //     childAspectRatio: 200 / 279,
-          //   ),
-          //   delegate: SliverChildBuilderDelegate((
-          //     BuildContext context,
-          //     int index,
-          //   ) {
-          //     return const RecommendCarCard();
-          //   }, childCount: 4),
-          // ),
-          // const SliverToBoxAdapter(child: SizedBox(height: 28)),
-          // const SliverToBoxAdapter(
-          //   child: SectionHeaderRow(text: "Our Popular Cars"),
-          // ),
+          SliverGrid(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200.0,
+              mainAxisSpacing: 10.0,
+              crossAxisSpacing: 10.0,
+              childAspectRatio: 200 / 279,
+            ),
+            delegate: SliverChildBuilderDelegate((
+              BuildContext context,
+              int index,
+            ) {
+              return const RecommendCarCard();
+            }, childCount: 4),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 28)),
+          const SliverToBoxAdapter(
+            child: SectionHeaderRow(text: "Our Popular Cars"),
+          ),
 
-          // const SliverToBoxAdapter(child: SizedBox(height: 18)),
+          const SliverToBoxAdapter(child: SizedBox(height: 18)),
 
-          // SliverToBoxAdapter(
-          //   child: SizedBox(
-          //     height: 100,
-          //     child: ListView.builder(
-          //       scrollDirection: Axis.horizontal,
-          //       itemCount: 3,
-          //       itemBuilder: (context, index) {
-          //         return const Padding(
-          //           padding: EdgeInsets.only(right: 18.0),
-          //           child: PopularCarContianer(),
-          //         );
-          //       },
-          //     ),
-          //   ),
-          // ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return const Padding(
+                    padding: EdgeInsets.only(right: 18.0),
+                    child: PopularCarContianer(),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
