@@ -1,5 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
@@ -18,7 +16,6 @@ class NearbyCar extends StatelessWidget {
         const SizedBox(height: 18),
         Container(
           width: double.infinity,
-
           decoration: BoxDecoration(
             color: const Color(0xffF0F0F0),
             borderRadius: BorderRadius.circular(15),

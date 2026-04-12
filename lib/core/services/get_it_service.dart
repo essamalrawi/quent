@@ -17,7 +17,7 @@ import 'package:quent/features/auth/register/domain/use_cases/request_verify_cod
 import 'package:quent/features/auth/register/domain/use_cases/sign_up_use_case.dart';
 import 'package:quent/features/main/home/data/data_sources/home_remote_data_source.dart';
 import 'package:quent/features/main/home/data/data_sources/repos/home_repo_impl.dart';
-import 'package:quent/features/main/home/data/domain/repos/home_repo.dart';
+import 'package:quent/features/main/search/data/domain/use_cases/search_for_cars_use_case.dart';
 
 final getIt = GetIt.instance;
 
@@ -83,4 +83,6 @@ void setupGetIt() {
       homeRemoteDataSourceImpl: getIt.get<HomeRemoteDataSourceImpl>(),
     ),
   );
+
+  // Search featured
 }

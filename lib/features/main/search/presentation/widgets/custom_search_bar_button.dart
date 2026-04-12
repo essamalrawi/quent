@@ -11,7 +11,6 @@ class CustomSearchBarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 52,
-
       child: TextField(
         scrollPadding: EdgeInsets.zero,
         onSubmitted: (data) {
