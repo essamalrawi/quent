@@ -211,6 +211,9 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/verifited.svg
   String get verifited => 'assets/images/icon/verifited.svg';
 
+  /// File path: assets/images/icon/x.svg
+  String get x => 'assets/images/icon/x.svg';
+
   /// List of all assets
   List<dynamic> get values => [
     activeHome,
@@ -252,6 +255,7 @@ class $AssetsImagesIconGen {
     star,
     switcherIcon,
     verifited,
+    x,
   ];
 }
 

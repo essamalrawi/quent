@@ -3,6 +3,7 @@ import 'package:quent/features/main/home/presentation/pages/widgets/custom_searc
 import 'package:quent/features/main/home/presentation/pages/widgets/filter_search_widget.dart';
 import 'package:quent/features/main/search/presentation/widgets/car_brand_selector.dart';
 import 'package:quent/features/main/search/presentation/widgets/custom_search_view_app_bar.dart';
+import 'package:quent/features/main/search/presentation/widgets/filter_bottom_sheet.dart';
 import 'package:quent/features/main/search/presentation/widgets/popular_car_container.dart';
 import 'package:quent/features/main/search/presentation/widgets/recommend_car_card.dart';
 import 'package:quent/features/main/search/presentation/widgets/section_header_row.dart';
@@ -32,43 +33,7 @@ class SearchPageBody extends StatelessWidget {
                     const SizedBox(width: 26),
                     GestureDetector(
                       onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor:
-                              Colors.transparent, // for rounded corners effect
-                          builder: (BuildContext context) {
-                            return SafeArea(
-                              top: false,
-                              child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height *
-                                    0.95, // slightly smaller than full screen
-                                width: MediaQuery.of(context).size.width,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(25.0),
-                                  ),
-                                ),
-                                child: const Column(
-                                  children: [
-                                    SizedBox(height: 20),
-                                    Text(
-                                      'Bottom Sheet without covering phone bars',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    // Your content goes here
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        );
+                         filterBottomSheet(context);
                       },
                       child: FilterSearchWidget(
                         iconImage: Assets.images.icon.filterIcon,

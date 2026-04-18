@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quent/core/helpers/on_generate_route.dart';
 import 'package:quent/core/utils/api_service.dart';
+import 'package:quent/features/main/main/presentation/main_page.dart';
 import 'package:quent/features/main/search/data/data_sources/search_remote_data_source.dart';
 import 'package:quent/features/main/startup/presentation/startup_page.dart';
 import 'package:quent/features/shared_features/data/domain/entities/car_entity.dart';
@@ -27,13 +28,13 @@ void main() async {
   await Prefs.init();
   setupGetIt();
 
-  SearchRemoteDataSourceImpl k = SearchRemoteDataSourceImpl(ApiService(Dio()));
-  List<CarEntity> data = await k.searchForCars(
-    brandId: "1",
-    carType: "Regular",
-  );
-  log(data[0].name);
-  log(data[1].name);
+  // SearchRemoteDataSourceImpl k = SearchRemoteDataSourceImpl(ApiService(Dio()));
+  // List<CarEntity> data = await k.searchForCars(
+  //   brandId: "1",
+  //   carType: "Regular",
+  // );
+  // log(data[0].name);
+  // log(data[1].name);
 
   runApp(const QuentApp());
 }
@@ -55,7 +56,7 @@ class QuentApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xffF8F8F8)),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: StartupPage.routeName,
+      initialRoute: MainPage.routeName,
     );
   }
 }
