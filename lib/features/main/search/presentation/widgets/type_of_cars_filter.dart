@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/features/main/search/presentation/widgets/active_type_of_cars.dart';
+import 'package:quent/features/main/search/presentation/widgets/inactive_type_of_cars.dart';
 
-class TypeOfCarsFilter extends StatelessWidget {
+class TypeOfCarsFilter extends StatefulWidget {
   const TypeOfCarsFilter({super.key});
 
+  @override
+  State<TypeOfCarsFilter> createState() => _TypeOfCarsFilterState();
+}
+
+class _TypeOfCarsFilterState extends State<TypeOfCarsFilter> {
+  int selectedIndex = 0;
+  List<String> carTypes = ['All Cars', 'Regular Cars', 'Luxury Cars'];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,31 +37,21 @@ class TypeOfCarsFilter extends StatelessWidget {
               borderRadius: BorderRadius.circular(60),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'All Cars',
-                  style: AppStyles.regular14(
-                    context,
-                  ).copyWith(color: Colors.black, fontWeight: FontWeight.w500),
+          child: Row(
+            children: List.generate(carTypes.length, (index) {
+              return Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  child: index == selectedIndex
+                      ? ActiveTypeOfCars(text: carTypes[index])
+                      : InactiveTypeOfCars(text: carTypes[index]),
                 ),
-                Text(
-                  'Regular Cars',
-                  style: AppStyles.regular14(
-                    context,
-                  ).copyWith(color: Colors.black, fontWeight: FontWeight.w500),
-                ),
-                Text(
-                  'Luxury Cars',
-                  style: AppStyles.regular14(
-                    context,
-                  ).copyWith(color: Colors.black, fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
+              );
+            }),
           ),
         ),
       ],
