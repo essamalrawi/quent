@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quent/core/resources/app_styles.dart';
+import 'package:quent/features/main/search/presentation/widgets/price_range_widget.dart';
 import 'package:quent/features/main/search/presentation/widgets/type_of_cars_filter.dart';
 import 'package:quent/generated/assets.gen.dart';
 
@@ -48,10 +49,17 @@ void filterBottomSheet(BuildContext context) {
               SizedBox(height: 20),
               Divider(color: Color(0xFFD7D7D7)),
               SizedBox(height: 20),
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TypeOfCarsFilter(),
+              ),
+              SizedBox(height: 28),
+              Divider(indent: 20, endIndent: 20, color: Color(0xFFD7D7D7)),
+              SizedBox(height: 28),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: PriceRangeWidget(),
               ),
             ],
           ),

@@ -33,7 +33,7 @@ class SearchPageBody extends StatelessWidget {
                     const SizedBox(width: 26),
                     GestureDetector(
                       onTap: () {
-                         filterBottomSheet(context);
+                        filterBottomSheet(context);
                       },
                       child: FilterSearchWidget(
                         iconImage: Assets.images.icon.filterIcon,
