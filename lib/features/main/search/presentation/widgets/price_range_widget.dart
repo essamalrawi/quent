@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quent/features/main/search/presentation/widgets/maxium_widget.dart';
 import 'package:quent/features/main/search/presentation/widgets/price_range_bar.dart';
 
 class PriceRangeWidget extends StatefulWidget {
@@ -48,6 +49,15 @@ class _PriceRangeWidgetState extends State<PriceRangeWidget> {
               maxValue = values.end;
             },
           ),
+        ),
+        SizedBox(height: 18),
+
+        Row(
+          children: [
+            RangeNumberWidget(number: minValue.toInt(), label: 'Minimum'),
+            Spacer(),
+            RangeNumberWidget(number: maxValue.toInt(), label: 'Maximum'),
+          ],
         ),
       ],
     );
