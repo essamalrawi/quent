@@ -151,7 +151,6 @@ class _SignUpPageBodyState extends State<SignUpPageBody> {
                                 CustomTextFormField(
                                   textEditingController: dobController,
                                   hintText: "Date Of Birth",
-
                                   onTap: () async {
                                     DateTime? pickedDate = await showDatePicker(
                                       context: context,

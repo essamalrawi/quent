@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quent/core/resources/app_styles.dart';
 import 'package:quent/features/main/search/presentation/widgets/option_selector.dart';
+import 'package:quent/features/main/search/presentation/widgets/pick_up_and_drop_date.dart';
 
 class RentalTimeWidget extends StatelessWidget {
   const RentalTimeWidget({super.key});
@@ -21,6 +22,8 @@ class RentalTimeWidget extends StatelessWidget {
         ),
         SizedBox(height: 18),
         OptionSelector(options: ["Hour", "Day", "Weekly", "Monthly"]),
+        SizedBox(height: 28),
+        PickUpAndDropDate(),
       ],
     );
   }

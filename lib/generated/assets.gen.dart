@@ -120,6 +120,9 @@ class $AssetsImagesIconGen {
   /// File path: assets/images/icon/auth_view_logo.svg
   String get authViewLogo => 'assets/images/icon/auth_view_logo.svg';
 
+  /// File path: assets/images/icon/calender.svg
+  String get calender => 'assets/images/icon/calender.svg';
+
   /// File path: assets/images/icon/chair.svg
   String get chair => 'assets/images/icon/chair.svg';
 
@@ -131,6 +134,9 @@ class $AssetsImagesIconGen {
 
   /// File path: assets/images/icon/dots.svg
   String get dots => 'assets/images/icon/dots.svg';
+
+  /// File path: assets/images/icon/down_arrow.svg
+  String get downArrow => 'assets/images/icon/down_arrow.svg';
 
   /// File path: assets/images/icon/fill_heart.svg
   String get fillHeart => 'assets/images/icon/fill_heart.svg';
@@ -225,10 +231,12 @@ class $AssetsImagesIconGen {
     appleLogo,
     arrow,
     authViewLogo,
+    calender,
     chair,
     check,
     currency,
     dots,
+    downArrow,
     fillHeart,
     filterIcon,
     googleLogo,

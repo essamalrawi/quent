@@ -6,9 +6,9 @@ import 'package:quent/features/main/search/presentation/widgets/rental_time_widg
 import 'package:quent/features/main/search/presentation/widgets/type_of_cars_filter.dart';
 import 'package:quent/generated/assets.gen.dart';
 
-void filterBottomSheet(BuildContext context) {
+void filterBottomSheet(BuildContext rootContext) {
   showModalBottomSheet(
-    context: context,
+    context: rootContext,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (BuildContext context) {
@@ -21,52 +21,66 @@ void filterBottomSheet(BuildContext context) {
             color: Colors.white,
             borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
           ),
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: SvgPicture.asset(Assets.images.icon.x),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: SvgPicture.asset(Assets.images.icon.x),
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            'Filters',
+                            style: AppStyles.bold18(context).copyWith(),
+                            textAlign: TextAlign.center,
+                          ),
+                          Spacer(),
+                        ],
                       ),
                     ),
-                    Spacer(),
-                    Text(
-                      'Filters',
-                      style: AppStyles.bold18(context).copyWith(),
-                      textAlign: TextAlign.center,
+                    SizedBox(height: 20),
+                    Divider(color: Color(0xFFD7D7D7)),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TypeOfCarsFilter(),
                     ),
-                    Spacer(),
+                    SizedBox(height: 28),
+                    Divider(
+                      indent: 20,
+                      endIndent: 20,
+                      color: Color(0xFFD7D7D7),
+                    ),
+                    SizedBox(height: 28),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: PriceRangeWidget(),
+                    ),
+                    SizedBox(height: 28),
+                    Divider(
+                      indent: 20,
+                      endIndent: 20,
+                      color: Color(0xFFD7D7D7),
+                    ),
+                    SizedBox(height: 28),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: RentalTimeWidget(),
+                    ),
                   ],
                 ),
-              ),
-              SizedBox(height: 20),
-              Divider(color: Color(0xFFD7D7D7)),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TypeOfCarsFilter(),
-              ),
-              SizedBox(height: 28),
-              Divider(indent: 20, endIndent: 20, color: Color(0xFFD7D7D7)),
-              SizedBox(height: 28),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: PriceRangeWidget(),
-              ),
-              SizedBox(height: 28),
-              Divider(indent: 20, endIndent: 20, color: Color(0xFFD7D7D7)),
-              SizedBox(height: 28),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: RentalTimeWidget(),
               ),
             ],
           ),
