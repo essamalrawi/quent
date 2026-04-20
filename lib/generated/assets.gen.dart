@@ -151,7 +151,11 @@ class $AssetsImagesIconGen {
   String get heart => 'assets/images/icon/heart.svg';
 
   /// File path: assets/images/icon/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/images/icon/icon.png');
+  AssetGenImage get iconPng =>
+      const AssetGenImage('assets/images/icon/icon.png');
+
+  /// File path: assets/images/icon/icon.svg
+  String get iconSvg => 'assets/images/icon/icon.svg';
 
   /// File path: assets/images/icon/icon_search_bar.svg
   String get iconSearchBar => 'assets/images/icon/icon_search_bar.svg';
@@ -241,7 +245,8 @@ class $AssetsImagesIconGen {
     filterIcon,
     googleLogo,
     heart,
-    icon,
+    iconPng,
+    iconSvg,
     iconSearchBar,
     inactiveHome,
     inactiveInbox,
